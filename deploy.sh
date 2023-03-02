@@ -24,6 +24,6 @@ git commit -m 'deploy'
 # git push -f git@github.com:cathy7485/cathy7485.github.io.git master
 
 # 部署到 https://cathy7485.github.io/Burger
-git push -f https://github.com/cathy7485/Burger.git master:gh-pages
+git push -f https://github.com/cathy7485/Burger.git main:gh-pages
 
 cd -
