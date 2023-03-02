@@ -8,7 +8,6 @@
 				<router-link to="/about">品牌故事</router-link>
 				<router-link to="/news">最新公告</router-link>
 				<router-link to="/products">餐點菜單</router-link>
-				<!-- <router-link to="/admin/products">後台產品列表</router-link> -->
 				<router-link to="/orderList">查詢訂單</router-link>
 				<router-link to="/order">線上點餐</router-link>
 			</nav>
@@ -32,6 +31,7 @@
 					<ul class="p-5">
 						<li>電話：06-555-8888</li>
 						<li>地址：臺南市永康區漢堡區漢堡路77號</li>
+						<!-- <router-link to="/admin/products">後台產品列表</router-link> -->
 					</ul>
 				</div>
 				<div class="col-6 text-end">

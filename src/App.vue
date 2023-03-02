@@ -1,8 +1,7 @@
-<script >// 有setup 代表他是Composition API
+<script>
 import HelloWorld from './components/HelloWorld.vue'
 import CardComponent from './components/CardComponent.vue'
 
-// 改成 option API
 export default{
 	components: {
 		HelloWorld,
