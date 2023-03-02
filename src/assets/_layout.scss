@@ -95,6 +95,36 @@
 			}
 		}
 	}
+	#popular-products{
+		position: relative;
+		&::after{
+			content: '';
+			position: absolute;
+			left: -86px;
+			bottom: -10px;
+			background: $orange;
+			width: 267px;
+			height: 267px;
+			border-radius: 50%;
+			z-index: -1;
+		}
+		.product-img{
+			border: solid 3px $orange;
+			border-radius: 50%;
+			overflow: hidden;
+			box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
+		}
+		.product-info{
+			padding: 2rem 4rem;
+			.title{
+				font-family: 'Noto Sans TC';
+				font-size: 1.5rem;
+				font-weight: 600;
+				margin-top: 3rem;
+				margin-bottom: 3rem;
+			}
+		}
+	}
 }
 footer{
 	padding: 20px 20px 10px;
