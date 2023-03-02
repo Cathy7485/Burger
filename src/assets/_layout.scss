@@ -1,0 +1,72 @@
+.header-container{
+	position: relative;
+	height: 80px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	.logo{
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		left: 5%;
+		z-index: 1;
+	}
+	nav{
+		margin-left: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		a{
+			display: block;
+			color: #272727;
+			font-size: 1.125rem;
+			font-family: 'Noto Sans TC', sans-serif;
+			font-weight: 500;
+			margin: 0 12px;
+			transition: all 0.3s;
+			&:hover{
+				color: $orange;
+				transition: all 0.3s;
+			}
+		}
+	}
+	.cart-btn{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: $orange;
+		color: #fff;
+		width: 106px;
+		height: 48px;
+		border-radius: 50px;
+		text-align: center;
+		transition: all 0.3s;
+		.material-symbols-outlined{
+			font-size: 36px;
+		}
+		&:hover{
+			background: darken( $orange, 10% );
+			transition: all 0.3s;
+		}
+	}
+}
+#banner{
+	img{
+		width: 100%;
+	}
+}
+#content{
+	min-height: 500px;
+}
+footer{
+	padding: 20px 20px 10px;
+	background: #272727;
+	color: #fff;
+	ul{
+		list-style: none;
+		padding-left: 0;
+		li{
+			margin-bottom: 16px;
+		}
+	}
+}
