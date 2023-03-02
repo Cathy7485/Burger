@@ -51,12 +51,50 @@
 	}
 }
 #banner{
+	max-height: 700px;
+	overflow: hidden;
 	img{
 		width: 100%;
 	}
 }
 #content{
 	min-height: 500px;
+	padding-top: 3rem;
+	.block-title{
+		width: 100%;
+		text-align: center;
+		margin-bottom:  5rem;
+		.title{
+			position: relative;
+			width: 240px;
+			margin: 0 auto;
+			display: inline-block;
+			font-size: 1.875rem;
+			font-weight: 600;
+			font-family: 'Noto Sans TC', sans-serif;
+			text-align: center;
+			&::before{
+				content: '';
+				position: absolute;
+				top: calc(50% - 12px);
+				left: 32px;
+				width: 3px;
+				height: 32px;
+				background: $orange;
+				transform: rotate(-25deg);
+			}
+			&::after{
+				content: '';
+				position: absolute;
+				top: calc(50% - 12px);
+				right: 32px;
+				width: 3px;
+				height: 32px;
+				background: $orange;
+				transform: rotate(25deg);
+			}
+		}
+	}
 }
 footer{
 	padding: 20px 20px 10px;
