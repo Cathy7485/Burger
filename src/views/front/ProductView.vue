@@ -1,7 +1,9 @@
 <template>
-  這是單一產品頁面
-  <h2>{{ product.title }}</h2>
-  <img :src="product.imageUrl" class="w-50" alt="">
+	<div class="container">
+		這是單一產品頁面
+		<h2>{{ product.title }}</h2>
+		<img :src="product.imageUrl" class="w-50" alt="">
+	</div>
 </template>
 
 <script>
