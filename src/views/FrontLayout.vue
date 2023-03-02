@@ -38,7 +38,7 @@
 					<img src="../assets/logo.svg" alt="footer-LOGO">
 				</div>
 				<div class="col-12 text-center">
-					Copyright © 2023  吃堡 - 手工漢堡專賣店 版權所有
+					Copyright © 2023  吃堡 - 手工漢堡專賣店 All Rights Reserved.
 				</div>
 			</div>
 		</div>
