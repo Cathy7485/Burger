@@ -16,7 +16,7 @@
 					<div class="d-flex">
 						<div class="product-img">
 							<img
-								src="https://i.imgur.com/bryLmvk.jpg"
+								src="https://raw.githubusercontent.com/Cathy7485/Burger/main/src/assets/images/%E7%81%AB%E7%84%B0%E9%A6%99%E8%84%86%E7%82%B8%E9%9B%9E%E5%A0%A1.jpg"
 								alt=""
 							/>
 						</div>
@@ -32,7 +32,7 @@
 					<div class="d-flex align-items-center">
 						<div class="product-img">
 							<img
-								src="https://images.unsplash.com/photo-1580372647279-e3af83eacec5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+								src="https://raw.githubusercontent.com/Cathy7485/Burger/main/src/assets/images/%E8%B5%B7%E5%8F%B8%E7%80%91%E5%B8%83%E6%96%B0%E8%B1%AC%E8%82%89%E7%B4%A0%E5%A0%A1.jpg"
 								alt=""
 							/>
 						</div>
