@@ -9,7 +9,7 @@
 </template>
 <script>
 import { RouterView } from "vue-router"
-const { VITE_APP_URL } = import.meta.env
+const { VITE_URL } = import.meta.env
 
 export default {
   components: {
@@ -26,7 +26,7 @@ export default {
       const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, "$1")
       this.$http.defaults.headers.common.Authorization = token
 
-      const url = `${ VITE_APP_URL }api/user/check`
+      const url = `${ VITE_URL }api/user/check`
       this.$http.post(url)
         .then((res) => {
           if(!res.data.success){

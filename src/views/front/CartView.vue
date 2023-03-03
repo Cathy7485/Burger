@@ -72,7 +72,7 @@
 </template>
 
 <script>
-const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env
+const { VITE_URL, VITE_PATH } = import.meta.env
 
 export default {
   data(){
@@ -95,7 +95,7 @@ export default {
   },
   methods:{
     getCarts() {
-      this.$http.get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`)
+      this.$http.get(`${VITE_URL}api/${VITE_PATH}/cart`)
         .then(res => {
           this.cart = res.data.data;
         })
@@ -107,7 +107,7 @@ export default {
         qty: item.qty,
       };
       this.loadingItem = item.id; // 購物車的id
-      this.$http.put(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${item.id}`, {data})
+      this.$http.put(`${VITE_URL}api/${VITE_PATH}/cart/${item.id}`, {data})
         .then(res => {
           alert(res.data.message);
           this.loadingItem = '';
@@ -117,7 +117,7 @@ export default {
     },
     deleteItem(item) { 
       this.loadingItem = item.id;
-      this.$http.delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${item.id}`)
+      this.$http.delete(`${VITE_URL}api/${VITE_PATH}/cart/${item.id}`)
         .then(res => {
           alert(res.data.message);
           this.loadingItem = '';
@@ -127,7 +127,7 @@ export default {
     },
     onSubmit(){
       const order = this.form;
-      this.$http.post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/order`, { order })
+      this.$http.post(`${VITE_URL}api/${VITE_PATH}/order`, { order })
         .then(res => {
           this.getCarts();
           alert(res.data.message);

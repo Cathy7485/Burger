@@ -20,7 +20,7 @@
 </template>
 
 <script>
-const { VITE_APP_URL } = import.meta.env
+const { VITE_URL } = import.meta.env
 
 export default {
   data () {
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     login() {
-      const url = `${ VITE_APP_URL }admin/signin`
+      const url = `${ VITE_URL }admin/signin`
       this.$http
         .post(url, this.user)
         .then((res) => {

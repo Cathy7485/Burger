@@ -7,7 +7,7 @@
 </template>
 
 <script>
-const { VITE_APP_URL, VITE_APP_PATH }  = import.meta.env
+const { VITE_URL, VITE_PATH }  = import.meta.env
 export default{
   data () {
     return {
@@ -17,11 +17,11 @@ export default{
   methods:{
     getProduct () {
       const { id } = this.$route.params;
-      this.$http.get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/product/${id}`)
+      this.$http.get(`${VITE_URL}/v2/api/${VITE_PATH}/product/${id}`)
       .then(res=> {
         this.product = res.data.product
       })
-			
+
     }
   },
   mounted () {

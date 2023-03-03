@@ -20,7 +20,7 @@
 
 <script>
 import { RouterLink } from 'vue-router'
-const { VITE_APP_URL, VITE_APP_PATH }  = import.meta.env
+const { VITE_URL, VITE_PATH }  = import.meta.env
 
 export default{
   data () {
@@ -33,7 +33,8 @@ export default{
   },
   methods: {
     getProducts () {
-      this.$http.get(`${VITE_APP_URL}/v2/api/${ VITE_APP_PATH }/products/all`)
+			console.log(`${VITE_URL}api/${ VITE_PATH }/products/all`)
+      this.$http.get(`${VITE_URL}api/${ VITE_PATH }/products/all`)
       .then((res) =>{
         this.products = res.data.products 
       })
@@ -44,7 +45,7 @@ export default{
         qty: 1
       }
 
-      this.$http.post(`${VITE_APP_URL}/v2/api/${ VITE_APP_PATH }/cart`,{ data })
+      this.$http.post(`${VITE_URL}api/${ VITE_PATH }/cart`,{ data })
         .then((res)=> {
           alert(res.data.message)
         })
