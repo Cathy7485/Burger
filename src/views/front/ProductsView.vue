@@ -47,7 +47,6 @@ export default{
       this.$http.post(`${VITE_APP_URL}/v2/api/${ VITE_APP_PATH }/cart`,{ data })
         .then((res)=> {
           alert(res.data.message)
-          console.log(res)
         })
     }
   },

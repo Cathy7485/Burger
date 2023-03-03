@@ -21,6 +21,7 @@ export default{
       .then(res=> {
         this.product = res.data.product
       })
+			
     }
   },
   mounted () {

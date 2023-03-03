@@ -9,7 +9,7 @@
 				<router-link to="/news">最新公告</router-link>
 				<router-link to="/products">餐點菜單</router-link>
 				<router-link to="/orderList">查詢訂單</router-link>
-				<router-link to="/order">線上點餐</router-link>
+				<router-link to="/cart">線上點餐</router-link>
 			</nav>
 			<router-link to="/cart">
 				<div class="cart-btn">
