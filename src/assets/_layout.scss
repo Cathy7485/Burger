@@ -12,9 +12,9 @@
     z-index: 1;
   }
   nav {
-    margin-left: 0;
+    // margin-left: 0;
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     a {
       display: block;
@@ -51,7 +51,6 @@
   }
 }
 #banner {
-  // display: none;
   max-height: 700px;
 	height: 700px;
   overflow: hidden;
@@ -61,6 +60,26 @@
 		object-fit: cover;
 		object-position: center;
   }
+	.banner-title{
+		position: relative;
+		font-family: "Noto Sans TC", sans-serif;
+		color: #fff;
+		font-weight: 600;
+		&::before{
+			content: "來吃堡，吃飽飽";
+			font-size: 2rem;
+			position: absolute;
+			left: 268px;
+			bottom: 152px;
+		}		
+		&::after{
+			content: '我們的漢堡都是手工製作！健康美味無負擔！';
+			font-size: 1.125rem;
+			position: absolute;
+			left: 268px;
+			bottom: 100px;
+		}
+	}
 }
 #content {
   min-height: 500px;
@@ -194,16 +213,53 @@
       font-size: 1.125rem;
     }
   }
+	#evaluate{
+		margin-top: 7rem;
+		font-family: "Noto Sans TC", sans-serif;
+		.evaluate-item{
+			position: relative;
+			background: #fff;
+			padding: 40px;
+			border-radius: 20px;
+			box-shadow: 10px 10px 10px rgba(0,0,0,0.1);	
+			margin-bottom: 7rem;
+			.title{
+				color: $orange;
+				font-weight: 500;
+				font-size: 1.125rem;
+				text-align: center;
+				margin-bottom: 18px;
+			}
+			.info{
+				.ster{
+					position: relative;
+				}
+				.comment{
+					margin-top: 8px;
+				}
+			}
+		}
+	}
 }
 footer {
-  padding: 20px 20px 10px;
+  padding-top: 3rem;
   background: #272727;
   color: #fff;
   ul {
     list-style: none;
     padding-left: 0;
+		margin-top: 3rem;
     li {
       margin-bottom: 16px;
     }
   }
+	.footer-logo{
+		margin: 4rem 0 7rem;
+	}
+	.copyright{
+		width: 100%;
+		padding: 12px 0;
+		text-align: center;
+		border-top: solid 1px #fff;
+	}
 }

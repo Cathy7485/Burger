@@ -4,7 +4,6 @@
       <div class="block-title">
         <div class="title">暢銷漢堡</div>
       </div>
-      <!-- swiper -->
       <swiper
         :navigation="true"
         :spaceBetween="120"
@@ -63,7 +62,6 @@
 					</div>
         </swiper-slide>
       </swiper>
-      <!-- swiper -->
     </div>
   </div>
   <div id="about" class="container">
@@ -71,12 +69,12 @@
       <div class="block-title">
         <div class="title">品牌故事</div>
       </div>
-      <div class="col-6">
+      <div class="col-xl-6">
         <div class="about-img">
           <img src="https://raw.githubusercontent.com/Cathy7485/Burger/main/src/assets/images/about.jpg" alt="關於我們照片" />
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-xl-6">
         <div class="about-info">
           <p>吃堡創立於2022年，創立動機是想讓更多人吃到手工漢堡的美味，市面上的漢堡販賣管道琳瑯滿目，卻鮮少有漢堡品牌可以兼具平價與健康的兩大要點。</p>
           <p>吃堡有著獨特性的魅力就是想怎麼吃就怎麼點，讓挑食的顧客也能吃得很開心。</p>
@@ -93,26 +91,59 @@
       </div>
       <div class="col-lg-4">
         <div class="evaluate-item">
-          
+          <div class="title">
+            美食部落客 君君
+          </div>       
+          <div class="info">
+            <div class="star"></div>
+            <div class="comment">
+              太美味了！終於可以不用再吃到自己討厭的配料了
+            </div>
+          </div>     
         </div>
       </div>
       <div class="col-lg-4">
         <div class="evaluate-item">
-          
+          <div class="title">
+            健身教練 John Lin 
+          </div> 
+          <div class="info">
+            <div class="star"></div>
+            <div class="comment">
+              漢堡肉質真的很鮮！都是老闆手工做的！對身體無負擔！滿滿蛋白質！
+            </div>
+          </div>         
         </div>
       </div>
       <div class="col-lg-4">
         <div class="evaluate-item">
-          
+          <div class="title">
+            素素飲食Youtuber 百百
+          </div>          
+          <div class="info">
+            <div class="star"></div>
+            <div class="comment">
+              手工漢堡居然還有素食的！真的很特別也很棒！讓素食者也一飽口福！
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="container-fluid">
+  <div id="location" class="container-fluid">
     <div class="row">
       <div class="block-title">
         <div class="title">地理位置</div>
       </div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.6423889002085!2d120.22444165078909!3d23.00017418489063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e76ea43016789%3A0xdf299d1044d0fd06!2z5Y-w5Y2X5biC5bCP5p2x6Lev!5e0!3m2!1szh-TW!2stw!4v1677924985144!5m2!1szh-TW!2stw"
+        width="100%"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
     </div>
   </div>
 </template>
