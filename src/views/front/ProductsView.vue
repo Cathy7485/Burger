@@ -25,7 +25,7 @@ const { VITE_URL, VITE_PATH }  = import.meta.env
 export default{
   data () {
     return {
-      products: []
+      products: [] 
     }
   },
   components: {
@@ -33,7 +33,6 @@ export default{
   },
   methods: {
     getProducts () {
-			console.log(`${VITE_URL}api/${ VITE_PATH }/products/all`)
       this.$http.get(`${VITE_URL}api/${ VITE_PATH }/products/all`)
       .then((res) =>{
         this.products = res.data.products 
@@ -47,7 +46,11 @@ export default{
 
       this.$http.post(`${VITE_URL}api/${ VITE_PATH }/cart`,{ data })
         .then((res)=> {
-          alert(res.data.message)
+          this.$swal({
+            title: res.data.message,
+            icon : 'success',
+            showConfirmButton: false,
+          })
         })
     }
   },
