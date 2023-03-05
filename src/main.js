@@ -13,7 +13,6 @@ import './assets/all.scss'
 
 const app = createApp(App)
 
-app.use(VueSweetalert2)
-app.use(VueAxios, axios)
+app.use(VueSweetalert2,VueAxios, axios)
 app.use(router)
 app.mount('#app')

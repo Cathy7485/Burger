@@ -91,39 +91,54 @@
       </div>
       <div class="col-lg-4">
         <div class="evaluate-item">
+          <div class="headshot">
+            <img src="" alt="美食部落客 君君">
+          </div>
           <div class="title">
             美食部落客 君君
           </div>       
           <div class="info">
-            <div class="star"></div>
+            <div class="star">
+              <span>評價</span><span>5</span>
+            </div>
             <div class="comment">
-              太美味了！終於可以不用再吃到自己討厭的配料了
+              <span>評論</span><span>太美味了！終於可以不用再吃到自己討厭的配料了</span>
             </div>
           </div>     
         </div>
       </div>
       <div class="col-lg-4">
         <div class="evaluate-item">
+          <div class="headshot">
+            <img src="" alt="健身教練 John Lin ">
+          </div>
           <div class="title">
             健身教練 John Lin 
           </div> 
           <div class="info">
-            <div class="star"></div>
+            <div class="star">
+              <span>評價</span><span>5</span>
+            </div>
             <div class="comment">
-              漢堡肉質真的很鮮！都是老闆手工做的！對身體無負擔！滿滿蛋白質！
+              <span>評論</span><span>漢堡肉質真的很鮮！都是老闆手工做的！對身體無負擔！滿滿蛋白質！</span>
             </div>
           </div>         
         </div>
       </div>
       <div class="col-lg-4">
         <div class="evaluate-item">
+          <div class="headshot">
+            <img src="" alt="素素飲食Youtuber 百百">
+          </div>
           <div class="title">
             素素飲食Youtuber 百百
           </div>          
           <div class="info">
-            <div class="star"></div>
+            <div class="star">
+              <span>評價</span><span>5</span>
+            </div>
             <div class="comment">
-              手工漢堡居然還有素食的！真的很特別也很棒！讓素食者也一飽口福！
+              <span>評論</span><span>手工漢堡居然還有素食的！真的很特別也很棒！讓素食者也一飽口福！</span>
             </div>
           </div>
         </div>
@@ -139,7 +154,7 @@
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.6423889002085!2d120.22444165078909!3d23.00017418489063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e76ea43016789%3A0xdf299d1044d0fd06!2z5Y-w5Y2X5biC5bCP5p2x6Lev!5e0!3m2!1szh-TW!2stw!4v1677924985144!5m2!1szh-TW!2stw"
         width="100%"
         height="450"
-        style="border: 0"
+        style="border: 0; padding:0;"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
