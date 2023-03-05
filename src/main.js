@@ -3,9 +3,6 @@ import { createApp } from 'vue'
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
 
-import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap/dist/js/bootstrap.min.js"
-
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 

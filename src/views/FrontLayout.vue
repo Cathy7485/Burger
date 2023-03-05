@@ -75,9 +75,11 @@
 </template>
 <script>
 import { RouterView } from "vue-router";
+import Bootstrap from 'bootstrap/dist/js/bootstrap.js';
 export default {
   components: {
     RouterView,
+    Bootstrap,
   },
 };
 </script>
