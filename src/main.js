@@ -3,7 +3,8 @@ import { createApp } from 'vue'
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
 
-import baseComponent from 'bootstrap/js/dist/base-component.js'
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.min.js"
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -15,6 +16,8 @@ import './assets/all.scss'
 
 const app = createApp(App)
 
-app.use(VueSweetalert2, VueAxios, axios, baseComponent)
+app.use(VueSweetalert2)
+app.use(VueAxios, axios)
 app.use(router)
+
 app.mount('#app')
