@@ -3,8 +3,8 @@
     <div class="header-container">
       <router-link to="/">
         <div class="logo">
-					<img src="../assets/logo.svg" class="d-none d-md-block d-lg-block d-xl-block" alt="logo" />
-					<img src="../assets/logo-xs.jpg" class="d-block d-md-none" alt="logo-xs">
+					<img src="../assets/logo.svg" class="d-none d-lg-block d-xl-block" alt="logo" />
+					<img src="../assets/logo-xs.jpg" class="d-block d-lg-none" alt="logo-xs">
 				</div>
       </router-link>
       <nav class="navbar navbar-expand-lg navbar-light container">
@@ -48,23 +48,26 @@
   </header>
   <section id="banner">
     <img src="../assets/banner.jpg" alt="banner" />
-		<div class="banner-title"></div>
+		<div class="banner-title">
+      <span>來吃堡，吃飽飽</span> 
+      <span class="subtitle">我們的漢堡都是手工製作！健康美味無負擔！</span>
+    </div>
   </section>
   <section id="content">
     <RouterView></RouterView>
   </section>
   <footer>
     <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <ul class="p-5">
+      <div class="row d-flex">
+        <div class="col-sm-6 footer-info">
+          <ul>
             <li>電話：06-555-8888</li>
             <li>地址：臺南市永康區漢堡區漢堡路77號</li>
             <!-- <router-link to="/admin/products">後台產品列表</router-link> -->
           </ul>
         </div>
-        <div class="col-6 text-end">
-          <img src="../assets/logo.svg" class="footer-logo" alt="footer-logo" />
+        <div class="col-sm-6 footer-logo">
+          <img src="../assets/logo.svg" alt="footer-logo" />
         </div>
       </div>
     </div>
