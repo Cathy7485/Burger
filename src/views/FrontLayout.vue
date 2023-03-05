@@ -74,7 +74,6 @@
   </footer>
 </template>
 <script>
-import baseComponent from 'bootstrap/js/dist/base-component.js'
 import { RouterView } from "vue-router";
 export default {
   components: {

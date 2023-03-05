@@ -92,7 +92,7 @@
       <div class="col-lg-4">
         <div class="evaluate-item">
           <div class="headshot">
-            <img src="" alt="美食部落客 君君">
+            <img src="https://raw.githubusercontent.com/Cathy7485/Burger/main/src/assets/images/ch.jpg" alt="美食部落客 君君">
           </div>
           <div class="title">
             美食部落客 君君
@@ -110,7 +110,7 @@
       <div class="col-lg-4">
         <div class="evaluate-item">
           <div class="headshot">
-            <img src="" alt="健身教練 John Lin ">
+            <img src="https://raw.githubusercontent.com/Cathy7485/Burger/main/src/assets/images/john.jpg" alt="健身教練 John Lin ">
           </div>
           <div class="title">
             健身教練 John Lin 
@@ -128,7 +128,7 @@
       <div class="col-lg-4">
         <div class="evaluate-item">
           <div class="headshot">
-            <img src="" alt="素素飲食Youtuber 百百">
+            <img src="https://raw.githubusercontent.com/Cathy7485/Burger/main/src/assets/images/bai.jpg" alt="素素飲食Youtuber 百百">
           </div>
           <div class="title">
             素素飲食Youtuber 百百
