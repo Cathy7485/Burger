@@ -42,10 +42,18 @@ export default {
           // expires 設置有效時間
           document.cookie = `hexToken=${token}; expires=${new Date(expired)};`
           this.$router.push('/admin/products')
-          alert(res.data.message)
+          this.$swal({
+            title: res.data.message,
+            icon : 'success',
+            showConfirmButton: false,
+          })
         })
         .catch((err) => {
-          alert(err.response.data.message)
+          this.$swal({
+              title: err.response.data.message,
+              icon : 'error',
+              showConfirmButton: false,
+            })
         });
     },
   },

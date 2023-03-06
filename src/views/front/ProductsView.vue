@@ -1,6 +1,5 @@
 <template>
 	<div class="container">
-		這是產品列表頁面
 		<table class="table">
 			<tbody>
 				<tr v-for="product in products" :key="product.id">
@@ -43,7 +42,6 @@ export default{
         product_id: id,
         qty: 1
       }
-
       this.$http.post(`${VITE_URL}api/${ VITE_PATH }/cart`,{ data })
         .then((res)=> {
           this.$swal({

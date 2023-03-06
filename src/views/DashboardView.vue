@@ -20,7 +20,11 @@ export default {
       // 清除cookie
       document.cookie = `hexToken=; expires=${new Date()};`
       this.$router.push('/login')
-      alert('已登出！')
+      this.$swal({
+        title: '已登出！',
+        icon : 'success',
+        showConfirmButton: false,
+      })
     },
     checkLogin () {
       const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, "$1")
@@ -31,11 +35,19 @@ export default {
         .then((res) => {
           if(!res.data.success){
             this.$router.push('/login')
-            alert('您沒有權限進入！請重新登入！')
+            this.$swal({
+              title: '您沒有權限進入！請重新登入！',
+              icon : 'error',
+              showConfirmButton: false,
+            })
           }
         })
         .catch(err=>{
-          alert(err.response.data.message)
+          this.$swal({
+              title: err.response.data.message,
+              icon : 'error',
+              showConfirmButton: false,
+            })
         })
     }
   },

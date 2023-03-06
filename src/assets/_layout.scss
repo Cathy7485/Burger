@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  .active {
+  .logoBox{
     display: block;
     width: 138px;
     height: 80px;
@@ -26,17 +26,20 @@
     @include desktop {
       justify-content: flex-end;
     }
-    a {
-      display: block;
-      color: #272727;
-      font-size: 1.125rem;
-      font-family: "Noto Sans TC", sans-serif;
-      font-weight: 500;
-      margin: 0 12px;
-      transition: all 0.3s;
-      &:hover {
-        color: $orange;
+    .navbar-nav{
+      align-items: center;
+      a {
+        display: block;
+        color: #272727;
+        font-size: 1.125rem;
+        font-family: "Noto Sans TC", sans-serif;
+        font-weight: 500;
+        margin: 0 12px;
         transition: all 0.3s;
+        &:hover {
+          color: $orange;
+          transition: all 0.3s;
+        }
       }
     }
   }

@@ -1,13 +1,13 @@
 <template>
 	<header>
     <div class="header-container">
-      <router-link to="/">
+      <router-link class="logoBox" to="/">
         <div class="logo">
 					<img src="../assets/logo.svg" class="d-none d-lg-block d-xl-block" alt="logo" />
 					<img src="../assets/logo-xs.jpg" class="d-block d-lg-none" alt="logo-xs">
 				</div>
       </router-link>
-      <nav class="navbar navbar-expand-lg navbar-light container">
+      <nav class="navbar navbar-expand-lg container">
         <button
           class="navbar-toggler"
           type="button"
