@@ -1,21 +1,23 @@
 <template>
 	<div class="container">
-		這是登入畫面
-		<form class="form-signin">
-			<div class="form-floating mb-3">
-				<input type="email" class="form-control" v-model="user.username" id="floatingInput"
-					placeholder="name@example.com" required autofocus>
-				<label for="floatingInput">Email address</label>
-			</div>
-			<div class="form-floating">
-				<input type="password" class="form-control" v-model="user.password" id="floatingPassword"
-					placeholder="Password" required>
-				<label for="floatingPassword">Password</label>
-			</div>
-			<button class="btn btn-lg btn-primary w-100 mt-3" type="submit" @click="login">
-				登入
-			</button>
-		</form>
+    <div class="row">
+		<div class="page-title">管理登入</div>
+      <form class="form-signin col-8 m-auto">
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" v-model="user.username" id="floatingInput"
+            placeholder="name@example.com" required autofocus>
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" v-model="user.password" id="floatingPassword"
+            placeholder="Password" required>
+          <label for="floatingPassword">Password</label>
+        </div>
+        <button class="btn btn-lg btn-primary w-100 mt-5" type="submit" @click="login">
+          登入
+        </button>
+      </form>
+    </div>
 	</div>
 </template>
 

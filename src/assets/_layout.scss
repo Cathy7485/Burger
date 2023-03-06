@@ -75,6 +75,16 @@
   height: 700px;
   overflow: hidden;
   transition: all 0.3s;
+  &.page-banner{
+    height: 250px;
+    .banner-title{
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      bottom: initial;
+      text-align: center;
+    }
+  }
   @include desktop{
     height: 400px;
   }
@@ -329,6 +339,12 @@
         }
       }
     }
+  }
+  .page-title{
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 24px;
   }
 }
 footer {
