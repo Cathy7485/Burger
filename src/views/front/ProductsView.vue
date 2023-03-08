@@ -1,6 +1,18 @@
 <template>
 	<div class="container">
-		<table class="table">
+		<ul id="product-list" >
+			<li class="product-item"  v-for="product in products" :key="product.id">
+				<div class="title">{{ product.title }}</div>
+				<div class="img"><img :src="product.imageUrl" width="200" alt=""></div>
+				<div class="btn">
+					<RouterLink :to="`/product/${product.id}`"
+							class="btn btn-outline-secondary">產品細節</RouterLink>
+							<button type="button" class="btn btn-outline-primary" 
+							@click="addToCart(product.id)">加入購物車</button>
+				</div>
+			</li>
+		</ul>
+		<!-- <table class="table text-center">
 			<tbody>
 				<tr v-for="product in products" :key="product.id">
 					<td>{{ product.title }}</td>
@@ -13,7 +25,7 @@
 					</td>
 				</tr>
 			</tbody>
-		</table>
+		</table> -->
 	</div>
 </template>
 

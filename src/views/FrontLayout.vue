@@ -1,7 +1,7 @@
 <template>
   <HeaderComponent></HeaderComponent>
   <PageBanner></PageBanner>
-  <section id="content">
+  <section id="page-content">
     <RouterView></RouterView>
   </section>
   <FooterComponent></FooterComponent>
