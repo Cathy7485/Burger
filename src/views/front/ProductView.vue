@@ -1,6 +1,5 @@
 <template>
 	<div class="container">
-		這是單一產品頁面
 		<h2>{{ product.title }}</h2>
 		<img :src="product.imageUrl" class="w-50" alt="">
 	</div>
@@ -17,11 +16,13 @@ export default{
   methods:{
     getProduct () {
       const { id } = this.$route.params;
-      this.$http.get(`${VITE_URL}/v2/api/${VITE_PATH}/product/${id}`)
+      this.$http.get(`${VITE_URL}api/${VITE_PATH}/product/${id}`)
       .then(res=> {
         this.product = res.data.product
       })
-
+      .catch((err)=>{
+        console.log(err.response.data.message)
+      })
     }
   },
   mounted () {

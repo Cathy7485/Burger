@@ -1,6 +1,5 @@
 <template>
 	<div class="container">
-		這是購物車頁面
 		<table class="table align-middle">
 			<thead>
 				<tr>

@@ -1,31 +1,15 @@
 <template>
 	<div class="container">
-		<ul id="product-list" >
-			<li class="product-item"  v-for="product in products" :key="product.id">
-				<div class="title">{{ product.title }}</div>
+		<ul id="product-list" class="row">
+			<li class="product-item col-lg-4 col-md-6"  v-for="product in products" :key="product.id">
 				<div class="img"><img :src="product.imageUrl" width="200" alt=""></div>
+				<div class="title">{{ product.title }}</div>
 				<div class="btn">
 					<RouterLink :to="`/product/${product.id}`"
-							class="btn btn-outline-secondary">產品細節</RouterLink>
-							<button type="button" class="btn btn-outline-primary" 
-							@click="addToCart(product.id)">加入購物車</button>
+          class="btn btn-outline-secondary me-2">產品細節</RouterLink>
 				</div>
 			</li>
 		</ul>
-		<!-- <table class="table text-center">
-			<tbody>
-				<tr v-for="product in products" :key="product.id">
-					<td>{{ product.title }}</td>
-					<td><img :src="product.imageUrl" width="200" alt=""></td>
-					<td>
-						<RouterLink :to="`/product/${product.id}`"
-						class="btn btn-outline-secondary">產品細節</RouterLink>
-						<button type="button" class="btn btn-outline-primary" 
-						@click="addToCart(product.id)">加入購物車</button>
-					</td>
-				</tr>
-			</tbody>
-		</table> -->
 	</div>
 </template>
 
@@ -48,21 +32,12 @@ export default{
       .then((res) =>{
         this.products = res.data.products 
       })
+      .catch(
+        (err) =>{
+          console.log(err.response.data.message)
+        }
+      )
     },
-    addToCart(id){
-      const data = {
-        product_id: id,
-        qty: 1
-      }
-      this.$http.post(`${VITE_URL}api/${ VITE_PATH }/cart`,{ data })
-        .then((res)=> {
-          this.$swal({
-            title: res.data.message,
-            icon : 'success',
-            showConfirmButton: false,
-          })
-        })
-    }
   },
   mounted () {
     this.getProducts()

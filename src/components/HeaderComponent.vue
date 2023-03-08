@@ -34,7 +34,7 @@
               <router-link to="/orderList">查詢訂單</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/cart">線上點餐</router-link>
+              <router-link to="/order">線上點餐</router-link>
             </li>
           </ul>
         </div>
