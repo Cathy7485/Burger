@@ -1,5 +1,6 @@
 <template>
-	<div class="container">
+	<PageBanner :pageTitle="pageTitle"></PageBanner>
+	<section id="page-content" class="container">
 		<table class="table align-middle">
 			<thead>
 				<tr>
@@ -67,15 +68,20 @@
 				</tr>
 			</tfoot>
 		</table>
-	</div>
+	</section>
 </template>
 
 <script>
+import PageBanner from '../../components/PageBanner.vue'
 const { VITE_URL, VITE_PATH } = import.meta.env
 
 export default {
   data(){
     return{
+			pageTitle: {
+				title: '購物車'
+			},
+
       products: [],
       productId: '',
       cart: {},
@@ -92,10 +98,14 @@ export default {
 			},
     }
   },
+	components:{
+		PageBanner,
+	},
   methods:{
     getCarts() {
       this.$http.get(`${VITE_URL}api/${VITE_PATH}/cart`)
         .then(res => {
+					console.log(`${VITE_URL}api/${VITE_PATH}/cart`)
           this.cart = res.data.data;
         })
         .catch(err => alert(err.res.data.message))

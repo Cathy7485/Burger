@@ -1,9 +1,6 @@
 <template>
   <HeaderComponent></HeaderComponent>
-  <PageBanner></PageBanner>
-  <section id="page-content">
     <RouterView></RouterView>
-  </section>
   <FooterComponent></FooterComponent>
 </template>
 <script>

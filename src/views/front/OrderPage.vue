@@ -1,32 +1,43 @@
 <template>
-  <div class="container">
+  <PageBanner :pageTitle="pageTitle"></PageBanner>
+  <section id="page-content" class="container">
     <table class="table">
-			<tbody>
-				<tr v-for="product in products" :key="product.id">
-					<td><img :src="product.imageUrl" width="100" alt=""></td>
-					<td>{{ product.title }}</td>
-					<td>
-						<button type="button" class="btn btn-outline-primary" 
-						@click="addToCart(product.id)">加入購物車</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-  </div>
+      <tbody>
+        <tr v-for="product in products" :key="product.id">
+          <td><img :src="product.imageUrl" width="100" alt="" /></td>
+          <td>{{ product.title }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              @click="addToCart(product.id)"
+            >
+              加入購物車
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 </template>
 
 <script>
 import { RouterLink } from "vue-router";
+import PageBanner from "../../components/PageBanner.vue";
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
 export default {
   data() {
     return {
       products: [],
+      pageTitle: {
+        title: "線上點餐",
+      },
     };
   },
   components: {
     RouterLink,
+    PageBanner,
   },
   methods: {
     getProducts() {
