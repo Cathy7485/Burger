@@ -68,6 +68,46 @@
 				</tr>
 			</tfoot>
 		</table>
+		<!-- 訂單 -->
+		<div class="my-5 row justify-content-center">
+        <v-form ref="form" class="col-md-6" v-slot="{ errors }" @submit="onSubmit">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <v-field id="email" name="email" type="email" class="form-control"
+              :class="{ 'is-invalid': errors['email'] }" v-model="form.user.email" placeholder="請輸入 Email" rules="required"></v-field>
+            <error-message name="email" class="invalid-feedback"></error-message>
+          </div>
+
+          <div class="mb-3">
+            <label for="name" class="form-label">收件人姓名</label>
+            <v-field id="name" name="姓名" type="text" class="form-control" :class="{ 'is-invalid': errors['姓名'] }"
+              placeholder="請輸入姓名" v-model="form.user.name" rules="required"></v-field>
+            <error-message name="姓名" class="invalid-feedback"></error-message>
+          </div>
+
+          <div class="mb-3">
+            <label for="tel" class="form-label">收件人電話</label>
+            <v-field id="tel" name="電話" type="text" class="form-control" :class="{ 'is-invalid': errors['電話'] }"
+              placeholder="請輸入電話" v-model="form.user.tel" rules="required"></v-field>
+            <error-message name="電話" class="invalid-feedback"></error-message>
+          </div>
+
+          <div class="mb-3">
+            <label for="address" class="form-label">收件人地址</label>
+            <v-field id="address" name="地址" type="text" class="form-control" :class="{ 'is-invalid': errors['地址'] }"
+              placeholder="請輸入地址" v-model="form.user.address" rules="required"></v-field>
+            <error-message name="地址" class="invalid-feedback"></error-message>
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label">留言</label>
+            <textarea id="message" class="form-control" v-model="form.message" cols="30" rows="10"></textarea>
+          </div>
+          <div class="text-end">
+            <button type="submit" class="btn btn-danger">送出訂單</button>
+          </div>
+        </v-form>
+      </div>
 	</section>
 </template>
 
@@ -76,6 +116,7 @@ import PageBanner from '../../components/PageBanner.vue'
 const { VITE_URL, VITE_PATH } = import.meta.env
 
 export default {
+	
   data(){
     return{
 			pageTitle: {
@@ -105,10 +146,10 @@ export default {
     getCarts() {
       this.$http.get(`${VITE_URL}api/${VITE_PATH}/cart`)
         .then(res => {
-					console.log(`${VITE_URL}api/${VITE_PATH}/cart`)
+					// console.log(`${VITE_URL}api/${VITE_PATH}/cart`
           this.cart = res.data.data;
         })
-        .catch(err => alert(err.res.data.message))
+        .catch(err => console.log(err))
     },
     updateCartItem(item){ 
       const data = {
@@ -122,7 +163,7 @@ export default {
           this.loadingItem = '';
           this.getCarts();
         })
-        .catch(err => alert(err.res.data.message))
+        .catch(err => alert(err.response.data.message))
     },
     deleteItem(item) { 
       this.loadingItem = item.id;
@@ -132,17 +173,17 @@ export default {
           this.loadingItem = '';
           this.getCarts();
         })
-        .catch(err => alert(err.res.data.message))
+        .catch(err => console.log(err))
     },
     onSubmit(){
       const order = this.form;
       this.$http.post(`${VITE_URL}api/${VITE_PATH}/order`, { order })
         .then(res => {
-          this.getCarts();
-          alert(res.data.message);
+					alert(res.data.message);
           this.$refs.form.resetForm();
+          this.getCarts();
         })
-        .catch(err => console.log(err))
+        .catch(err =>{ console.log(err.response.data.message)})
     }  
   },
   mounted(){

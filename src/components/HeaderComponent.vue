@@ -31,10 +31,10 @@
               <router-link to="/products">餐點菜單</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/orderList">訂單查詢</router-link>
+              <router-link to="/order">線上點餐</router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/order">線上點餐</router-link>
+              <router-link to="/orderList">訂單查詢</router-link>
             </li>
           </ul>
         </div>

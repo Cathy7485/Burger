@@ -49,7 +49,7 @@ export default {
           this.products = res.data.products;
         })
         .catch((err) => {
-          console.log(err.res.data.message);
+          console.log(err.response.data.message);
         });
     },
   },
