@@ -5,11 +5,11 @@
       <tbody>
         <tr v-for="product in products" :key="product.id">
           <td><img :src="product.imageUrl" width="100" alt="" /></td>
-          <td>{{ product.title }}</td>
+          <td>{{ product.title }} <br> NT {{ product.price  }}</td>
           <td>
             <button
               type="button"
-              class="btn btn-outline-primary"
+              class="btn"
               @click="addToCart(product.id)"
             >
               加入購物車

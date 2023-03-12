@@ -13,6 +13,7 @@ import HomepageBanner from "../components/HomepageBanner.vue";
 import PageBanner from "../components/PageBanner.vue";
 import FooterComponent from "../components/FooterComponent.vue";
 
+
 export default {
   components: {
     RouterView,

@@ -41,6 +41,7 @@
 				<router-link to="/cart">
 					<div class="cart-btn">
 						<span class="material-symbols-outlined">shopping_cart</span>
+            <div class="cart-count">{{ carts.length }}</div>
 					</div>
 				</router-link>
       </nav>
@@ -48,7 +49,18 @@
   </header>
 </template>
 <script>
+import { mapActions, mapState } from "pinia";
+import cartStore from "../stores/cart";
+
 export default {
-	
+  computed: {
+    ...mapState(cartStore,['carts']) //購物車
+  },
+  methods: {
+    ...mapActions(cartStore,['getCart']),
+  },
+  mounted() {
+    this.getCart();
+  }
 }
 </script>

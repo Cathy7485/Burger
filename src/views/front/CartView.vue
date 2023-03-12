@@ -90,7 +90,7 @@
             :class="{ 'is-invalid': errors['email'] }"
             v-model="data.user.email"
             placeholder="請輸入 Email"
-            rules="required"
+            rules="required|email"
           ></v-field>
           <error-message name="email" class="invalid-feedback"></error-message>
         </div>
@@ -120,7 +120,7 @@
             :class="{ 'is-invalid': errors['電話'] }"
             placeholder="請輸入電話"
             v-model="data.user.tel"
-            rules="required"
+            :rules="phone"
           ></v-field>
           <error-message name="電話" class="invalid-feedback"></error-message>
         </div>
@@ -237,6 +237,11 @@ export default {
           console.log(err);
         });
     },
+    phone(value) {
+      const phoneNumber = /^(09)[0-9]{8}$/
+      return phoneNumber.test(value) ? true : '需要正確的電話號碼'
+
+    }
   },
   mounted() {
     this.getCarts();

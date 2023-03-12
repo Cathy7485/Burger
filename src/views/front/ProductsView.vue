@@ -1,6 +1,6 @@
 <template>
   <PageBanner :pageTitle="pageTitle"></PageBanner>
-  <section id="page-content" class="container">
+  <section id="page-content" class="container vl-parent" ref="formContainer">
     <ul id="product-list" class="row">
       <li
         class="product-item col-lg-4 col-md-6"
@@ -10,12 +10,14 @@
         <div class="img">
           <img :src="product.imageUrl" width="200" alt="" />
         </div>
-        <div class="title">{{ product.title }}</div>
-        <div class="btn">
+        <div class="title">
+          <span class="mb-2">{{ product.title }}</span><br>
+          <span class="price">NT {{ product.price }}</span>
+        </div>
+        <div class="">
           <RouterLink
             :to="`/product/${product.id}`"
-            class="btn btn-outline-secondary me-2"
-            >產品細節</RouterLink
+            class="btn">more</RouterLink
           >
         </div>
       </li>
@@ -35,6 +37,7 @@ export default {
       pageTitle: {
         title: "餐點菜單",
       },
+      fullPage: false, // loading不要滿版
     };
   },
   components: {
@@ -43,10 +46,16 @@ export default {
   },
   methods: {
     getProducts() {
+      const loader = this.$loading.show({
+        container: this.fullPage ? null : this.$refs.formContainer, //不要滿版，需要設定一個vi-parent，只loading該區塊
+        canCancel: false,
+        onCancel: this.onCancel
+      })
       this.$http
         .get(`${VITE_URL}api/${VITE_PATH}/products/all`)
         .then((res) => {
           this.products = res.data.products;
+          loader.hide()
         })
         .catch((err) => {
           console.log(err.response.data.message);
