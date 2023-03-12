@@ -26,7 +26,19 @@ const cartStore = defineStore('cart',{
       .catch((err) => {
         console.log(err.response.data.message);
       });
-    }
+    },
+    addToCart(product_id, qty = 1) {
+      const data = {
+        product_id,
+        qty
+      };
+      axios.post(`${VITE_URL}api/${VITE_PATH}/cart`, { data })
+        .then((res) => {
+          alert(res.data.message);
+          this.getCart()
+        });
+    },
+
   },
   // getters 概念同「computed」
   getters: {
@@ -34,4 +46,4 @@ const cartStore = defineStore('cart',{
   }
 })
 
-export default cartStore
+export default cartStore 

@@ -4,11 +4,16 @@
     
     <h2>{{ product.title }}</h2>
     <img :src="product.imageUrl" class="w-50" alt="" />
+    <button class="btn btn-primary" type="button"
+      @click="() => addToCart(product.id)"
+    >加入購物車</button>
   </section>
 </template>
 
 <script>
+import { mapActions } from "pinia";
 import PageBanner from "../../components/PageBanner.vue";
+import cartStore from "../../stores/cart";
 const { VITE_URL, VITE_PATH } = import.meta.env;
 export default {
   data() {
@@ -41,6 +46,7 @@ export default {
           console.log(err.response.data.message);
         });
     },
+    ...mapActions(cartStore,['addToCart']),
   },
   mounted() {
     this.getProduct();

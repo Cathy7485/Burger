@@ -206,7 +206,11 @@ export default {
       this.$http
         .put(`${VITE_URL}api/${VITE_PATH}/cart/${item.id}`, { data })
         .then((res) => {
-          alert(res.data.message);
+          this.$swal({
+            title: res.data.message,
+            icon: "success",
+            showConfirmButton: false,
+          });
           this.loadingItem = "";
           this.getCarts();
         })
@@ -217,19 +221,26 @@ export default {
       this.$http
         .delete(`${VITE_URL}api/${VITE_PATH}/cart/${item.id}`)
         .then((res) => {
-          alert(res.data.message);
+          this.$swal({
+            title: res.data.message,
+            icon: "success",
+            showConfirmButton: false,
+          });
           this.loadingItem = "";
           this.getCarts();
         })
         .catch((err) => console.log(err.response.data.message));
     },
     onSubmit() {
-      console.log(this.data);
       const data = this.data;
       this.$http
         .post(`${VITE_URL}api/${VITE_PATH}/order`, { data })
         .then((res) => {
-          alert(res.data.message);
+          this.$swal({
+            title: res.data.message,
+            icon: "success",
+            showConfirmButton: false,
+          });
           this.$refs.data.resetForm();
           this.getCarts();
         })
