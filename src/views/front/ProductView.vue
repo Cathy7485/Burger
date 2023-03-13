@@ -11,6 +11,7 @@
         <div class="info">
           <span class="badge text-bg-success">{{ product.category }}</span>
           <div class="title">{{ product.title }}</div>
+          <div class="price">NT {{ product.price }}</div>
           <hr>
           <div class="description">
             <div class="d-flex flex-row">
