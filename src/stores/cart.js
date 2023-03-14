@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
+import swal from 'vue-sweetalert2';
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
 // 目前這個環境不屬於Vue
@@ -24,12 +25,13 @@ const cartStore = defineStore('cart',{
         this.carts = res.data.data.carts; //購物車數量
         this.total = res.data.data.total; //總金額
         this.final_total = res.data.data.final_total;  //總金額
+        console.log(this.carts)
       })
       .catch((err) => {
         console.log(err.response.data.message);
       });
     },
-    addToCart(product_id, qty = 1) {
+    addToCart (product_id, qty = 1) {
       this.loadingStatus.loadingItem = product_id;
       const data = {
         product_id,
@@ -37,12 +39,32 @@ const cartStore = defineStore('cart',{
       };
       axios.post(`${VITE_URL}api/${VITE_PATH}/cart`, { data })
         .then((res) => {
+          this.getCart();//更新icon數量
           alert(res.data.message);
           this.loadingStatus.loadingItem = '';
-          this.getCart();
-        });
+        })
+        .catch(err => {
+          swal.fire({
+            icon: 'error',
+            text: err.response.data.message,
+            showConfirmButton: false,
+          })
+        })
     },
-
+    deleteItem(item) {
+      this.loadingItem = item.id;
+      axios.delete(`${VITE_URL}api/${VITE_PATH}/cart/${item.id}`)
+        .then((res) => {
+          swal.fire({
+            title: res.data.message,
+            icon: "success",
+            showConfirmButton: false,
+          });
+          this.loadingItem = "";
+          this.getCarts();
+        })
+        .catch((err) => console.log(err.response.data.message));
+    },
   },
   // getters 概念同「computed」
   getters: {
@@ -50,4 +72,4 @@ const cartStore = defineStore('cart',{
   }
 })
 
-export default cartStore 
+export default cartStore
