@@ -29,8 +29,10 @@
             class="btn btn-primary"
             type="button"
             @click="() => addToCart(product.id)"
+            :disabled="product.id === loadingItem"
           >
             加入購物車
+            <i class="fas fa-spinner fa-pulse" v-if="product.id === loadingStatus.loadingItem"></i>
           </button>
         </div>
       </div>
@@ -39,7 +41,7 @@
 </template>
 
 <script>
-import { mapActions } from "pinia";
+import { mapActions,mapState } from "pinia";
 import PageBanner from "../../components/PageBanner.vue";
 import cartStore from "../../stores/cart";
 const { VITE_URL, VITE_PATH } = import.meta.env;
@@ -79,5 +81,8 @@ export default {
   mounted() {
     this.getProduct();
   },
+  computed: {
+    ...mapState(cartStore, ['loadingStatus'])
+  }
 };
 </script>

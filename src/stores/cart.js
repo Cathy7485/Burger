@@ -9,7 +9,10 @@ const cartStore = defineStore('cart',{
     return {
       carts: [],
       total: 0,
-      final_total: 0
+      final_total: 0,
+      loadingStatus: {
+        loadingItem: '',
+      },
     }
   },
   // actions 概念同「methods」
@@ -18,7 +21,6 @@ const cartStore = defineStore('cart',{
     getCart() {
       axios.get(`${VITE_URL}api/${VITE_PATH}/cart`)
       .then(res =>{
-        console.log(res)
         this.carts = res.data.data.carts; //購物車數量
         this.total = res.data.data.total; //總金額
         this.final_total = res.data.data.final_total;  //總金額
@@ -28,6 +30,7 @@ const cartStore = defineStore('cart',{
       });
     },
     addToCart(product_id, qty = 1) {
+      this.loadingStatus.loadingItem = product_id;
       const data = {
         product_id,
         qty
@@ -35,7 +38,8 @@ const cartStore = defineStore('cart',{
       axios.post(`${VITE_URL}api/${VITE_PATH}/cart`, { data })
         .then((res) => {
           alert(res.data.message);
-          this.getCart()
+          this.loadingStatus.loadingItem = '';
+          this.getCart();
         });
     },
 
