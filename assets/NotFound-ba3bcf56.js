@@ -1,0 +1,1 @@
+import{_ as e,o,c as n,a as t}from"./index-49e4fd2a.js";const s={},c={class:"container text-center mt-5"},_=t("h1",null,"404",-1),a=t("p",null,"您到了一個異次元空間...",-1),r=t("a",{href:"index.html",class:"btn btn-outline-primary"}," 回首頁 ",-1),i=[_,a,r];function d(l,h){return o(),n("div",c,i)}const m=e(s,[["render",d]]);export{m as default};
