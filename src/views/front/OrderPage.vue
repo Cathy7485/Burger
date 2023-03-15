@@ -61,21 +61,6 @@ export default {
 					console.log(err.response.data.message);
 				});
     },
-    // addToCart(id) {
-    //   const data = {
-    //     product_id: id,
-    //     qty: 1,
-    //   };
-    //   this.$http
-    //     .post(`${VITE_URL}api/${VITE_PATH}/cart`, { data })
-    //     .then((res) => {
-    //       this.$swal({
-    //         title: res.data.message,
-    //         icon: "success",
-    //         showConfirmButton: false,
-    //       });
-    //     });
-    // },
     ...mapActions(cartStore, ["addToCart"]),
   },
   mounted() {
