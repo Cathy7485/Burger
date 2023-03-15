@@ -1,6 +1,6 @@
 <template>
   <PageBanner :pageTitle="pageTitle"></PageBanner>
-  <section id="page-content" class="container">
+  <section id="page-content" class="container vl-parent" ref="formContainer">
     <div id="product-page" class="row">
       <div class="col-lg-6">
         <div class="img">
@@ -29,7 +29,7 @@
             class="btn btn-primary"
             type="button"
             @click="() => addToCart(product.id)"
-            :disabled="product.id === loadingItem"
+            :disabled="product.id === loadingStatus.loadingItem"
           >
             加入購物車
             <i class="fas fa-spinner fa-pulse" v-if="product.id === loadingStatus.loadingItem"></i>

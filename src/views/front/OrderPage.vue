@@ -1,6 +1,6 @@
 <template>
   <PageBanner :pageTitle="pageTitle"></PageBanner>
-  <section id="page-content" class="container">
+  <section id="page-content" class="container vl-parent" ref="formContainer">
     <table class="table">
       <tbody>
         <tr v-for="product in products" :key="product.id">
@@ -10,7 +10,7 @@
             <button
               type="button"
               class="btn btn-primary"
-              @click="addToCart(product.id)"
+              @click="()=>addToCart(product.id)"
             >
             <i class="fas fa-spinner fa-pulse" v-if="product.id === loadingStatus.loadingItem"></i>
               加入購物車
@@ -44,9 +44,22 @@ export default {
   },
   methods: {
     getProducts() {
-      this.$http.get(`${VITE_URL}api/${VITE_PATH}/products/all`).then((res) => {
-        this.products = res.data.products;
-      });
+			const loader = this.$loading.show({
+				container: this.fullPage ? null : this.$refs.formContainer, //不要滿版，需要設定一個vi-parent，只loading該區塊
+				canCancel: false,
+				onCancel: this.onCancel,
+			});
+			const { id } = this.$route.params;
+      this.$http
+				.get(`${VITE_URL}api/${VITE_PATH}/products/all`)
+				.then((res) => {
+					this.products = res.data.products;
+					this.isLoading = false;
+					loader.hide();
+				})
+				.catch((err) => {
+					console.log(err.response.data.message);
+				});
     },
     // addToCart(id) {
     //   const data = {

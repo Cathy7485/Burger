@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
 import axios from 'axios';
-import swal from 'vue-sweetalert2';
+import VueSweetalert2 from 'vue-sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
 // 目前這個環境不屬於Vue
@@ -44,23 +45,15 @@ const cartStore = defineStore('cart',{
           this.loadingStatus.loadingItem = '';
         })
         .catch(err => {
-          swal.fire({
-            icon: 'error',
-            text: err.response.data.message,
-            showConfirmButton: false,
-          })
+          console.log(err.response.data.message)
         })
     },
     deleteItem(item) {
       this.loadingItem = item.id;
       axios.delete(`${VITE_URL}api/${VITE_PATH}/cart/${item.id}`)
         .then((res) => {
-          swal.fire({
-            title: res.data.message,
-            icon: "success",
-            showConfirmButton: false,
-          });
-          this.loadingItem = "";
+          alert(res.data.message);
+          this.loadingStatus.loadingItem = '';
           this.getCarts();
         })
         .catch((err) => console.log(err.response.data.message));
