@@ -1,29 +1,33 @@
 <template>
   <PageBanner :pageTitle="pageTitle"></PageBanner>
   <section id="page-content" class="container vl-parent" ref="formContainer">
-    <table class="table">
-      <tbody>
-        <tr v-for="product in products" :key="product.id">
-          <td><img :src="product.imageUrl" width="100" alt="" /></td>
-          <td>{{ product.title }} <br> NT {{ product.price  }}</td>
-          <td>
-            <button
-              type="button"
-              class="btn btn-primary"
-              @click="()=>addToCart(product.id)"
-            >
-            <i class="fas fa-spinner fa-pulse" v-if="product.id === loadingStatus.loadingItem"></i>
-              加入購物車
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div id="order-list" class="row">
+      <div class="order-item col-xl-3 col-lg-4 col-sm-6 gy-4" v-for="product in products" :key="product.id">
+        <div class="img">
+          <img :src="product.imageUrl" width="100" alt="" />
+        </div>
+        <div class="text-center mb-4">
+          <div class="title">{{ product.title }}</div>
+          <span class="price">NT {{ product.price }}</span>
+        </div>
+        <button
+          type="button"
+          class="order-btn"
+          @click="() => addToCart(product.id)"
+        >
+          <i
+            class="fas fa-spinner fa-pulse"
+            v-if="product.id === loadingStatus.loadingItem"
+          ></i>
+          加入購物車
+        </button>
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
-import { mapActions,mapState } from "pinia";
+import { mapActions, mapState } from "pinia";
 import { RouterLink } from "vue-router";
 import PageBanner from "../../components/PageBanner.vue";
 import cartStore from "../../stores/cart";
@@ -44,22 +48,22 @@ export default {
   },
   methods: {
     getProducts() {
-			const loader = this.$loading.show({
-				container: this.fullPage ? null : this.$refs.formContainer, //不要滿版，需要設定一個vi-parent，只loading該區塊
-				canCancel: false,
-				onCancel: this.onCancel,
-			});
-			const { id } = this.$route.params;
+      const loader = this.$loading.show({
+        container: this.fullPage ? null : this.$refs.formContainer, //不要滿版，需要設定一個vi-parent，只loading該區塊
+        canCancel: false,
+        onCancel: this.onCancel,
+      });
+      const { id } = this.$route.params;
       this.$http
-				.get(`${VITE_URL}api/${VITE_PATH}/products/all`)
-				.then((res) => {
-					this.products = res.data.products;
-					this.isLoading = false;
-					loader.hide();
-				})
-				.catch((err) => {
-					console.log(err.response.data.message);
-				});
+        .get(`${VITE_URL}api/${VITE_PATH}/products/all`)
+        .then((res) => {
+          this.products = res.data.products;
+          this.isLoading = false;
+          loader.hide();
+        })
+        .catch((err) => {
+          console.log(err.response.data.message);
+        });
     },
     ...mapActions(cartStore, ["addToCart"]),
   },
@@ -67,7 +71,7 @@ export default {
     this.getProducts();
   },
   computed: {
-    ...mapState(cartStore, ['loadingStatus'])
-  }
+    ...mapState(cartStore, ["loadingStatus"]),
+  },
 };
 </script>

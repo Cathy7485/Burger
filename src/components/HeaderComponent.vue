@@ -38,7 +38,7 @@
             </li>
           </ul>
         </div>
-				<router-link to="/cart">
+				<router-link to="/cart" class="cart-icon">
 					<div class="cart-btn">
 						<span class="material-symbols-outlined">shopping_cart</span>
             <div class="cart-count">{{ carts.length }}</div>
