@@ -674,6 +674,22 @@
 			}
 		}
 	}
+	#news-page{
+		.news-item{
+			padding: 16px;
+			border-bottom: solid 1px #e1e1e1;
+			.date{
+				margin-bottom: 16px;
+			}
+			.title{
+				color: $text;
+				font-weight: 600;
+				&:hover{
+					color: $orange;
+				}
+			}
+		}
+	}
 }
 footer {
   padding-top: 3rem;

@@ -5,6 +5,10 @@ $text: #212529 !default;
 
 a{
 	text-decoration: none;
+	color: $orange;
+	&:hover{
+		color: $blue;
+	}
 }
 
 // btn
