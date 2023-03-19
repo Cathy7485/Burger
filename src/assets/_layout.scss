@@ -690,6 +690,23 @@
 			}
 		}
 	}
+  #checkOrder{
+    .form{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .form-label{
+        min-width: 80px;
+        margin-bottom: 0;
+      }
+      .form-control{
+        margin: 0 12px;
+      }
+      .btn-primary{
+        min-width: 100px;
+      }
+    }
+  }
 }
 footer {
   padding-top: 3rem;
