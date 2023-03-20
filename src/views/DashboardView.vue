@@ -15,16 +15,6 @@ export default {
 		AdminHeader,
   },
   methods: {
-    logout () {
-      // 清除cookie
-      document.cookie = `hexToken=; expires=${new Date()};`
-      this.$router.push('/login')
-      this.$swal({
-        title: '已登出！',
-        icon : 'success',
-        showConfirmButton: false,
-      })
-    },
     checkLogin () {
       const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, "$1")
       this.$http.defaults.headers.common.Authorization = token
@@ -42,6 +32,7 @@ export default {
           }
         })
         .catch(err=>{
+          this.$router.push('/login')
           this.$swal({
               title: err.response.data.message,
               icon : 'error',

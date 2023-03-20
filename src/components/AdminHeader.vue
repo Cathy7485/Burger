@@ -14,5 +14,17 @@
 </template>
 <script>
 export default {
+	methods:{
+		logout () {
+      // 清除cookie
+      document.cookie = `hexToken=; expires=${new Date()};`
+      this.$router.push('/login');
+      this.$swal({
+        title: '已登出！',
+        icon : 'success',
+        showConfirmButton: false,
+      })
+    },
+	}
 }
 </script>

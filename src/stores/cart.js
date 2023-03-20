@@ -26,7 +26,6 @@ const cartStore = defineStore('cart',{
         this.carts = res.data.data.carts; //購物車數量
         this.total = res.data.data.total; //總金額
         this.final_total = res.data.data.final_total;  //總金額
-        // console.log(this.carts)
       })
       .catch((err) => {
         console.log(err.response.data.message);
@@ -52,17 +51,13 @@ const cartStore = defineStore('cart',{
       this.loadingItem = item.id;
       axios.delete(`${VITE_URL}api/${VITE_PATH}/cart/${item.id}`)
         .then((res) => {
+          this.getCarts();
           alert(res.data.message);
           this.loadingStatus.loadingItem = '';
-          this.getCarts();
         })
         .catch((err) => console.log(err.response.data.message));
     },
   },
-  // getters 概念同「computed」
-  getters: {
-  
-  }
 })
 
 export default cartStore
