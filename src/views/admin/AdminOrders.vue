@@ -1,3 +1,5 @@
 <template>
-  後台訂單列表
+	<div id="main" class="container">
+		後台訂單列表
+	</div>
 </template>

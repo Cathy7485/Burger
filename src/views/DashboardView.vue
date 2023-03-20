@@ -1,19 +1,18 @@
 <template>
-  這是後台頁面
-  <router-link to="/admin/products">後台產品列表</router-link> |
-  <router-link to="/admin/orders">後台訂單列表</router-link> |
-  <router-link to="/">回前台首頁</router-link> |
-  <a href="#!" @click.prevent="logout">登出</a>
-  <hr />
-  <RouterView></RouterView>
+	<div class="admin">
+		<AdminHeader></AdminHeader>
+		<RouterView></RouterView>
+	</div>
 </template>
 <script>
-import { RouterView } from "vue-router"
-const { VITE_URL } = import.meta.env
+import { RouterView } from "vue-router";
+import AdminHeader from "../components/AdminHeader.vue";
+const { VITE_URL } = import.meta.env;
 
 export default {
   components: {
     RouterView,
+		AdminHeader,
   },
   methods: {
     logout () {
