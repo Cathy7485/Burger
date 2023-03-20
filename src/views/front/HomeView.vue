@@ -23,7 +23,7 @@
               <div class="info">
                 雞肉鮮嫩搭配上經典起司，火焰噴槍融化起司完美融合在嫩雞肉上，給你最佳的味覺享受，口感多汁一口接一口！配料蔬菜與醬汁搭配，碰撞出多種新滋味！怎麼吃都不會膩！
               </div>
-              <a href="#!" class="more-btn" title="更多資訊">更多資訊</a>
+              <a href="#!" class="more-btn" title="更多資訊">更多資訊 <i class="fas fa-long-arrow-right"></i></a>
             </div>
           </div>
         </swiper-slide>
@@ -40,7 +40,7 @@
               <div class="info">
                 半熟蛋液與香濃起司絕配組合！新鮮蔬菜與素食新豬肉搭配獨家水果風味醬，口感清爽無負擔，讓人一口接一口的好滋味，蔬食健康第一選擇！
               </div>
-              <a href="#!" class="more-btn" title="更多資訊">更多資訊</a>
+              <a href="#!" class="more-btn" title="更多資訊">更多資訊 <i class="fas fa-long-arrow-right"></i></a>
             </div>
           </div>
         </swiper-slide>
@@ -57,7 +57,7 @@
               <div class="info">
                 每日新鮮直送的鮮蝦製作，鮮美口感的炸蝦佐洋蔥裹粉酥炸再搭配經典莎莎醬，每一口都新鮮！讓你回味無窮的滋味。
               </div>
-              <a href="#!" class="more-btn" title="更多資訊">更多資訊</a>
+              <a href="#!" class="more-btn" title="更多資訊">更多資訊 <i class="fas fa-long-arrow-right"></i></a>
             </div>
           </div>
         </swiper-slide>
@@ -116,7 +116,15 @@
             </div>
             <div class="title">美食部落客 君君</div>
             <div class="info">
-              <div class="star"><span>評價</span><span>5</span></div>
+              <div class="star"><span>評價</span>
+								<span>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</span>
+							</div>
               <div class="comment">
                 <span>評論</span
                 ><span>太美味了！終於可以不用再吃到自己討厭的配料了</span>
@@ -134,7 +142,15 @@
             </div>
             <div class="title">健身教練 John Lin</div>
             <div class="info">
-              <div class="star"><span>評價</span><span>5</span></div>
+              <div class="star"><span>評價</span>
+								<span>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</span>
+							</div>
               <div class="comment">
                 <span>評論</span
                 ><span
@@ -154,7 +170,15 @@
             </div>
             <div class="title">素素飲食Youtuber 百百</div>
             <div class="info">
-              <div class="star"><span>評價</span><span>5</span></div>
+              <div class="star"><span>評價</span>
+								<span>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</span>
+							</div>
               <div class="comment">
                 <span>評論</span
                 ><span

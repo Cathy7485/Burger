@@ -26,7 +26,7 @@ const cartStore = defineStore('cart',{
         this.carts = res.data.data.carts; //購物車數量
         this.total = res.data.data.total; //總金額
         this.final_total = res.data.data.final_total;  //總金額
-        console.log(this.carts)
+        // console.log(this.carts)
       })
       .catch((err) => {
         console.log(err.response.data.message);
