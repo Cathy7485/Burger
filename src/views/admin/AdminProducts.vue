@@ -49,9 +49,9 @@
 	<!-- Modal -->
     <div id="productModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
       aria-hidden="true">
-      <!-- <product-modal :temp-product="tempProduct" :is-new="isNew" :update-product="updateProduct"></product-modal> -->
+      <product-modal :temp-product="tempProduct" :is-new="isNew" :update-product="updateProduct"></product-modal>
     </div>
-    <!-- <div id="delProductModal" ref="delProductModal" class="modal fade" tabindex="-1"
+    <div id="delProductModal" ref="delProductModal" class="modal fade" tabindex="-1"
       aria-labelledby="delProductModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content border-0">
@@ -75,75 +75,99 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
     <!-- Modal -->
 </template>
 
 <script>
-import Modal from "bootstrap/js/dist/modal";
+import { Modal } from "bootstrap";
+import { mapActions, mapState } from 'pinia';
+import productModal from '../../components/productModal.vue';
+import productStore from '../../stores/productStore';
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
-let productModal = {};
-let delProductModal = {};
+// let productModal = {};
+// let delProductModal = {};
 
 export default {
 	data(){
 		return {
-			products: [],
+			// products: [],
 			tempProduct: {
 				imagesUrl: [],
 			},
 			isNew: false, //判斷是編輯還是新增
-			page: {}//儲值分頁資料 
+			page: {} ,//儲值分頁資料 
+      deleteModal: '',
+      productModal: '',
 		}
 	},
+  components:{
+    productStore,
+    productModal,
+  },
 	methods: {
-		getProducts() { //預設頁數是1
-			const url = `${VITE_URL}api/${VITE_PATH}/admin/products`;
-			this.$http
-				.get(url)
-					.then((res) => {
-						this.products = res.data.products;
-						// this.page = res.data.pagination;
-					})
-					.catch((err) => {
-						console.log(err.response.data.message);
-						this.$router.push('/login')
-					})
-		},
-		openModal(status, product) {
+    updateProduct(){
+      let url = `${VITE_URL}api/${VITE_PATH}/admin/product`;
+      //用this.isNew 判斷API要怎麼運行
+      let method = 'post';
+      //如果不是新增，把路徑跟方法改成編輯
+      if(!this.isNew){
+        url = `${VITE_URL}api/${VITE_PATH}/admin/product/${this.tempProduct.id}`;
+        method = 'put';
+      }
+      this.$http[method](url, {data: this.tempProduct})
+      .then(()=>{
+        this.getProducts(); //新增完重新取得產品資料
+        this.productModal.hide();//新增完關閉視窗
+      })
+      .catch(err=>{
+        alert(err.data.message);
+      }) 
+    },
+    deleteProduct(){
+      const url = `${VITE_URL}api/${VITE_PATH}/admin/product/${this.tempProduct.id}`;
+      this.$http.delete(url)
+        .then(() => {
+          this.getProducts(); //重新取得產品資料
+          this.delProductModal.hide(); //關閉視窗
+          alert('刪除成功！');
+        })
+        .catch(err => {
+          alert(err.data.message);
+        }) 
+    },
+    openModal(status, product) {
 			if (status === 'add') {
-				productModal.show();
+				this.productModal.show();
 				this.isNew = true; //是新增
 				//帶入初始化資料
 				this.tempProduct = {
 					imagesUrl: [],
 				};
 			} else if (status === 'edit') {
-				productModal.show();
+				this.productModal.show();
 				this.isNew = false; //不是新增
 				//會帶入當前要編輯的資料
 				this.tempProduct = { ...product }; //要展開才不會沒儲存就資料連動
 			} else if (status === 'del') {
-				delProductModal.show();
+				this.delProductModal.show();
 				this.tempProduct = { ...product }; // 等等要取id使用
 			}
     },
+    ...mapActions(productStore, ['getProducts']),	
 	},
+  computed: {
+    ...mapState(productStore, ['products'])
+  },
 	mounted() {
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, "$1")
     this.$http.defaults.headers.common.Authorization = token;
-
-		this.getProducts();
-    // this.productModal = new Modal(this.$refs.productModal, {
-    //   keyboard: false,
-    //   backdrop: "static",
-    // });
-    // this.deleteModal = new Modal(this.$refs.deleteModal, {
-    //   keyboard: false,
-    // });
+    
+    this.getProducts();
+    this.productModal = new Modal('#productModal');
+    // this.deleteModal = new Modal('#deleteModal');
 	}
-	
 }
 
 </script>

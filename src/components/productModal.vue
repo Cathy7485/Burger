@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <div id="product-modal-template">
     <div class="modal-dialog modal-xl">
       <div class="modal-content border-0">
@@ -35,11 +35,11 @@
               </div>
               <div>
                 <h4>多圖設置</h4>
-                判斷tempProduct.imagesUrl是一個陣列
+                <!-- 判斷tempProduct.imagesUrl是一個陣列 -->
                 <div v-if="Array.isArray(tempProduct.imagesUrl)">
                   <template
                     v-for="(item, key) in tempProduct.imagesUrl"
-                    :key="key + 01"
+                    :key="key + A2"
                   >
                     <input
                       type="text"
@@ -52,11 +52,11 @@
                       class="img-fluid"
                     />
                   </template>
-                  判斷新增、刪除出現的時機 
-                  新增兩條件：1.如果沒有資料時，可以新增 2. 如果當前位置有資料時，可以新增
+                  <!-- 判斷新增、刪除出現的時機 
+                  新增兩條件：1.如果沒有資料時，可以新增 2. 如果當前位置有資料時，可以新增 -->
                   <button
                     class="btn btn-outline-primary btn-sm d-block w-100"
-                    @click="tempProduct.imagesUrl.push('')"
+                    @click="()=>tempProduct.imagesUrl.push('')"
                     v-if="
                       !tempProduct.imagesUrl.length ||
                       tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]
@@ -66,7 +66,7 @@
                   </button>
                   <button
                     class="btn btn-outline-danger btn-sm d-block w-100"
-                    @click="tempProduct.imagesUrl.pop()"
+                    @click="()=>tempProduct.imagesUrl.pop()"
                     v-else
                   >
                     刪除圖片
@@ -187,4 +187,21 @@
       </div>
     </div>
   </div>
-</template> -->
+</template>
+
+<script>
+export default {
+  props: ['tempProduct','updateProduct', 'isNew'],
+  data(){
+    return {
+      product: {}
+    }
+  },
+  methods: {},
+  watch: {
+    tempProduct() {
+      this.product = this.tempProduct;
+    },
+  },
+}
+</script>
