@@ -3,30 +3,30 @@ import axios from 'axios';
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
 // 目前這個環境不屬於Vue
-export default defineStore('productStore',{
-  state: () =>({
-    productsData: [],
+export default defineStore('orderStore',{
+	state: () =>({
+    ordersData: [],
     pagination: {},
   }),
-  actions: {
-    getProducts(pages = 1) { //預設頁數是1
-      const url = `${VITE_URL}api/${VITE_PATH}/admin/products/?page=${pages}`;
+	actions: {
+		getOrders(pages = 1) { 
+      const url = `${VITE_URL}api/${VITE_PATH}/admin/orders/?page=${pages}`;
       axios.get(url)
         .then((res) => {
-          this.productsData = res.data.products;
+          this.ordersData = res.data.orders;
           this.pagination = res.data.pagination;
         })
         .catch((err) => {
           console.log(err.response.data.message);
         })
     },
-  },
-  getters: {
-    products: ({ productsData })=>{
-      return productsData
+	},
+	getters: {
+		orders: ({ ordersData })=>{
+      return ordersData
     },
 		pages: ({ pagination })=>{
       return pagination
     },
-  }
+	}
 })

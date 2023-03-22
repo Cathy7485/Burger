@@ -8,4 +8,9 @@
 	#main{
 		padding: 20px;
 	}
+	.page-item.active .page-link {
+		background-color: $orange;
+		border-color: $orange;
+		color: #fff;
+	}
 }

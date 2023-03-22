@@ -1,7 +1,7 @@
 <template>
 	<div id="main" class="container">
 		<div class="text-end mt-4">
-        <button class="btn btn-primary" @click="openModal('add')">
+        <button class="btn btn-primary" @click="()=>openModal('add')">
           建立新的產品
         </button>
       </div>
@@ -50,7 +50,7 @@
           </tr>
         </tbody>
       </table>
-			<productPagination :pages="pages" :get-products="getProducts" @change-page="getProducts"></productPagination>
+			<productPagination :pages="pages" :get-data="getProducts" @change-page="getProducts"></productPagination>
 	</div>
 	<!-- Modal -->
     <div id="productModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
@@ -59,7 +59,7 @@
     </div>
     <div id="deleteModal" ref="deleteModal" class="modal fade" tabindex="-1"
       aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <delete-modal :temp-product="tempProduct" :delete-product="deleteProduct" ></delete-modal>
+      <delete-modal :temp-product="tempProduct" :delete-product="deleteProduct" ></delete-modal>
     </div>
     <!-- Modal -->
 </template>
@@ -117,9 +117,10 @@ export default {
       }) 
     },
     deleteProduct(){
-      const url = `${VITE_URL}api/${VITE_PATH}/admin/product/${this.tempProduct.id}`;
+      const url = `${VITE_URL}api/${VITE_PATH}/admin/order/${this.tempProduct.id}`;
       this.$http.delete(url)
         .then(() => {
+					console.log(url)
           this.getProducts(); //重新取得產品資料
           this.deleteModal.hide(); //關閉視窗
           alert('刪除成功！');
@@ -156,5 +157,4 @@ export default {
     this.deleteModal = new Modal('#deleteModal');
 	}
 }
-
 </script>

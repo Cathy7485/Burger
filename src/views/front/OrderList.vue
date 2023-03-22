@@ -93,7 +93,6 @@ export default {
 			this.orderResult.num = result[0].num;
 			this.orderResult.total = result[0].total;
 			this.orderResult.user = result[0].user;
-			
 		}
 	},
 	mounted (){
