@@ -4,6 +4,9 @@
 		justify-content: space-evenly;
 		align-items: center;
 		background: #212529;
+		.active{
+			color: #fff;
+		}
 	}
 	#main{
 		padding: 20px;

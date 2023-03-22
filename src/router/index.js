@@ -68,6 +68,14 @@ const routes = [{
         path: 'orders',
         component: () => import('../views/admin/AdminOrders.vue')
       },
+			{
+        path: 'news',
+        component: () => import('../views/admin/AdminNews.vue')
+      },
+			{
+        path: 'about',
+        component: () => import('../views/admin/AdminAbout.vue')
+			},
     ]
   },
   // 404頁面

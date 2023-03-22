@@ -33,10 +33,10 @@
             <td>
               <div class="btn-group">
                 <!-- v:on裡的product是參數，當下要編輯/刪除的項目 -->
-                <button type="button" id="viewBtn" class="btn btn-outline-primary btn-sm">
+                <button type="button" id="viewBtn" class="btn btn-outline-secondary btn-sm" @click="() => openModal('check', order)">
                   檢視
                 </button>
-                <button type="button" class="btn btn-outline-danger btn-sm" @click="() => openModal('del', product)">
+                <button type="button" class="btn btn-outline-danger btn-sm" @click="() => openModal('del', order)">
                   刪除
                 </button>
               </div>
@@ -47,6 +47,10 @@
 			<productPagination :pages="pages" :get-data="getOrders" @change-page="getOrders"></productPagination>
 		</div>
 		<!-- Modal -->
+		<div id="orderModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
+      aria-hidden="true">
+      <order-modal :temp-product="tempProduct" :update-product="updateProduct"></order-modal>
+    </div>
 		<div id="deleteModal" ref="deleteModal" class="modal fade" tabindex="-1"
       aria-labelledby="deleteModalLabel" aria-hidden="true">
       <delete-modal :temp-product="tempProduct" :delete-product="deleteProduct" ></delete-modal>
@@ -57,6 +61,7 @@
 import { Modal } from "bootstrap";
 import { mapActions, mapState } from 'pinia';
 import orderStore from '../../stores/orderStore';
+import orderModal from "../../components/orderModal.vue";
 import deleteModal from "../../components/deleteModal.vue";
 import productPagination from '../../components/productPagination.vue';
 const { VITE_URL, VITE_PATH } = import.meta.env;
@@ -68,11 +73,13 @@ export default{
 				imagesUrl: [],
 			},
 			page: {},//儲值分頁資料 
-			deleteModal: '',
+			// orderModal: '',
+			// deleteModal: '',
 		}
 	},
 	components: {
 		orderStore,
+		orderModal,
 		deleteModal,
 		productPagination,
 	},
@@ -82,7 +89,7 @@ export default{
 	},
 	methods: {
 		...mapActions(orderStore, ['getOrders']),
-		deleteOrder() {
+		deleteProduct() {
 			const url = `${VITE_URL}api/${VITE_PATH}/admin/order/${this.tempProduct.id}`;
 			this.$http.delete(url)
 				.then(() => {
@@ -95,13 +102,9 @@ export default{
 				})
 		},
 		openModal(status, order) {
-			if (status === 'add') {
-				this.productModal.show();
-				this.isNew = true; //是新增
-				//帶入初始化資料
-				this.tempProduct = {
-					imagesUrl: [],
-				};
+			if (status === 'check') {
+				this.orderModal.show();
+				this.tempProduct = { ...order };
 			} 
 			else if (status === 'del') {
 				this.deleteModal.show();
@@ -109,7 +112,7 @@ export default{
 			}
 		},
 		switchDate(timestamp) {
-			let date = new Date(timestamp * 1000); // 將秒轉換為毫秒
+			let date = new Date(timestamp * 1000); // 轉時間戳
 			let formatted_date = date.toISOString().slice(0, 10);
 			return formatted_date;
 		},
@@ -118,6 +121,7 @@ export default{
 		const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, "$1")
 		this.$http.defaults.headers.common.Authorization = token;
 		this.getOrders();
+		this.orderModal = new Modal('#orderModal');
 		this.deleteModal = new Modal('#deleteModal');
 	}
 }
