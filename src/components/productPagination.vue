@@ -26,6 +26,6 @@
 </template>		
 <script>
 export default {
-	props: ['pages', 'getProduct'],
+	props: ['pages', 'getProducts'],
 }
 </script>

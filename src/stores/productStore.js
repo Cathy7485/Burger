@@ -6,25 +6,29 @@ const { VITE_URL, VITE_PATH } = import.meta.env;
 export default defineStore('productStore',{
   state: () =>({
     productsData: [],
-    page: {},
+    pagination: {},
   }),
+	components:{
+	},
   actions: {
     getProducts(pages = 1) { //預設頁數是1
       const url = `${VITE_URL}api/${VITE_PATH}/admin/products/?page=${pages}`;
       axios.get(url)
         .then((res) => {
           this.productsData = res.data.products;
-          // this.page = res.data.pagination;
+          this.pagination = res.data.pagination;
         })
         .catch((err) => {
           console.log(err.response.data.message);
-          this.$router.push('/login')
         })
     },
   },
   getters: {
     products: ({ productsData })=>{
       return productsData
-    }
+    },
+		pages: ({ pagination })=>{
+      return pagination
+    },
   }
 })

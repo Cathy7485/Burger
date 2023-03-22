@@ -50,6 +50,7 @@
           </tr>
         </tbody>
       </table>
+			<productPagination :pages="pages" :get-products="getProducts" @change-page="getProducts"></productPagination>
 	</div>
 	<!-- Modal -->
     <div id="productModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
@@ -92,7 +93,11 @@ export default {
 		deleteModal,
 		productPagination,
   },
+	computed: {
+		...mapState(productStore, ['products', 'pages']),
+	},
 	methods: {
+		...mapActions(productStore, ['getProducts']),
     updateProduct(){
       let url = `${VITE_URL}api/${VITE_PATH}/admin/product`;
       //用this.isNew 判斷API要怎麼運行
@@ -141,11 +146,7 @@ export default {
 				this.tempProduct = { ...product }; // 等等要取id使用
 			}
     },
-    ...mapActions(productStore, ['getProducts']),	
 	},
-  computed: {
-    ...mapState(productStore, ['products'])
-  },
 	mounted() {
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, "$1")
     this.$http.defaults.headers.common.Authorization = token;
