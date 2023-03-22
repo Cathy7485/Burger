@@ -22,4 +22,15 @@ a{
 		border: solid 1px $orange;
 	}
 }
+.btn-outline-secondary{
+	background: #fff;
+	color: $orange;
+	border: solid 1px $orange;
+	border-radius: 30px;
+	&:hover{
+		background: lighten($color: $orange, $amount: 5%);
+		border: solid 1px $orange;
+		color: #fff;
+	}
+}
 

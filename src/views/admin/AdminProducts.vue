@@ -1,5 +1,10 @@
 <template>
 	<div id="main" class="container">
+		<div class="text-end mt-4">
+        <button class="btn btn-primary" @click="openModal('add')">
+          建立新的產品
+        </button>
+      </div>
 		<table class="table mt-4">
         <thead>
           <tr>
@@ -51,30 +56,9 @@
       aria-hidden="true">
       <product-modal :temp-product="tempProduct" :is-new="isNew" :update-product="updateProduct"></product-modal>
     </div>
-    <div id="delProductModal" ref="delProductModal" class="modal fade" tabindex="-1"
-      aria-labelledby="delProductModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content border-0">
-          <div class="modal-header bg-danger text-white">
-            <h5 id="delProductModalLabel" class="modal-title">
-              <span>刪除產品</span>
-            </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            是否刪除
-            <strong class="text-danger">{{ tempProduct.title }}</strong> 商品(刪除後將無法恢復)。
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-              取消
-            </button>
-            <button type="button" class="btn btn-danger" @click="deleteProduct">
-              確認刪除
-            </button>
-          </div>
-        </div>
-      </div>
+    <div id="deleteModal" ref="deleteModal" class="modal fade" tabindex="-1"
+      aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <delete-modal :temp-product="tempProduct" :delete-product="deleteProduct" ></delete-modal>
     </div>
     <!-- Modal -->
 </template>
@@ -83,11 +67,11 @@
 import { Modal } from "bootstrap";
 import { mapActions, mapState } from 'pinia';
 import productModal from '../../components/productModal.vue';
+import deleteModal from "../../components/deleteModal.vue";
 import productStore from '../../stores/productStore';
+import productPagination from '../../components/productPagination.vue';
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
-// let productModal = {};
-// let delProductModal = {};
 
 export default {
 	data(){
@@ -105,6 +89,8 @@ export default {
   components:{
     productStore,
     productModal,
+		deleteModal,
+		productPagination,
   },
 	methods: {
     updateProduct(){
@@ -130,7 +116,7 @@ export default {
       this.$http.delete(url)
         .then(() => {
           this.getProducts(); //重新取得產品資料
-          this.delProductModal.hide(); //關閉視窗
+          this.deleteModal.hide(); //關閉視窗
           alert('刪除成功！');
         })
         .catch(err => {
@@ -151,7 +137,7 @@ export default {
 				//會帶入當前要編輯的資料
 				this.tempProduct = { ...product }; //要展開才不會沒儲存就資料連動
 			} else if (status === 'del') {
-				this.delProductModal.show();
+				this.deleteModal.show();
 				this.tempProduct = { ...product }; // 等等要取id使用
 			}
     },
@@ -166,7 +152,7 @@ export default {
     
     this.getProducts();
     this.productModal = new Modal('#productModal');
-    // this.deleteModal = new Modal('#deleteModal');
+    this.deleteModal = new Modal('#deleteModal');
 	}
 }
 
