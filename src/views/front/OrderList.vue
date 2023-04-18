@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import PageBanner from "../../components/PageBanner.vue";
+import PageBanner from "@/components/PageBanner.vue";
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
 export default {
@@ -66,11 +66,11 @@ export default {
       this.$http
         .get(`${VITE_URL}api/${VITE_PATH}/orders`)
 					.then((res) => {
-						console.log(res.data.orders)
+						// alert(res.data.orders)
 						this.orders = res.data.orders;
 					})
 					.catch((err) => {
-						console.log(err.response.data.message);
+						alert(err.response.data.message);
 					});
 		},
 		searchOrder() {

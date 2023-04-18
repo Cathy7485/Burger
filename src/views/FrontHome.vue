@@ -6,6 +6,7 @@
   </section>
   <FooterComponent></FooterComponent>
 </template>
+
 <script>
 import { RouterView } from "vue-router";
 import HeaderComponent from "../components/HeaderComponent.vue";

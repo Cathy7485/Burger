@@ -12,16 +12,26 @@
           <span class="badge text-bg-success">{{ product.category }}</span>
           <div class="title">{{ product.title }}</div>
           <div class="price">NT {{ product.price }}</div>
-          <hr>
+          <hr />
           <div class="description">
             <div class="d-flex flex-row">
-              <div class="d-block me-2" style="min-width: 90px;white-space: nowrap;">產品描述：</div>
+              <div
+                class="d-block me-2"
+                style="min-width: 90px; white-space: nowrap"
+              >
+                產品描述：
+              </div>
               <div class="d-block">{{ product.description }}</div>
             </div>
           </div>
           <div class="content">
             <div class="d-flex flex-row">
-              <div class="d-block me-2" style="min-width: 90px;white-space: nowrap;">產品成分：</div>
+              <div
+                class="d-block me-2"
+                style="min-width: 90px; white-space: nowrap"
+              >
+                產品成分：
+              </div>
               <div class="d-block">{{ product.content }}</div>
             </div>
           </div>
@@ -29,10 +39,9 @@
             class="btn btn-primary"
             type="button"
             @click="() => addToCart(product.id)"
-            :disabled="product.id === loadingStatus.loadingItem"
           >
             加入購物車
-            <i class="fas fa-spinner fa-pulse" v-if="product.id === loadingStatus.loadingItem"></i>
+            <!-- <i class="fas fa-spinner fa-pulse" v-if="product.id === loadingStatus.loadingItem"></i> -->
           </button>
         </div>
       </div>
@@ -41,9 +50,9 @@
 </template>
 
 <script>
-import { mapActions,mapState } from "pinia";
-import PageBanner from "../../components/PageBanner.vue";
-import cartStore from "../../stores/cart";
+import { mapActions } from "pinia";
+import PageBanner from "@/components/PageBanner.vue";
+import cartStore from "@/stores/cartStore";
 const { VITE_URL, VITE_PATH } = import.meta.env;
 export default {
   data() {
@@ -73,7 +82,11 @@ export default {
           loader.hide();
         })
         .catch((err) => {
-          console.log(err.response.data.message);
+          this.$swal({
+            title: err.response.data.message,
+            icon: "error",
+            showConfirmButton: false,
+          });
         });
     },
     ...mapActions(cartStore, ["addToCart"]),
@@ -81,8 +94,6 @@ export default {
   mounted() {
     this.getProduct();
   },
-  computed: {
-    ...mapState(cartStore, ['loadingStatus'])
-  }
+  computed: {},
 };
 </script>

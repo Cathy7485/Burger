@@ -1,10 +1,9 @@
 .header-container {
   position: relative;
-  // height: 80px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  .logoBox{
+  .logoBox {
     display: block;
     width: 138px;
     height: 80px;
@@ -15,7 +14,7 @@
       top: 0;
       left: 5%;
       z-index: 1;
-      @include desktop{
+      @include desktop {
         left: 0;
       }
     }
@@ -27,7 +26,7 @@
       justify-content: flex-end;
       position: initial;
     }
-    .navbar-nav{
+    .navbar-nav {
       align-items: center;
       a {
         display: block;
@@ -44,45 +43,45 @@
       }
     }
   }
-  .navbar-toggler{
+  .navbar-toggler {
     padding: 0;
     border: none;
     font-size: 2rem;
-    &:focus{
+    &:focus {
       box-shadow: none;
     }
     @include desktop {
       order: 2;
       margin-right: 8px;
     }
-    .navbar-toggler-icon{
+    .navbar-toggler-icon {
       background-image: url(https://raw.githubusercontent.com/Cathy7485/Burger/main/src/assets/nav-icon.png);
     }
   }
-  .navbar-collapse{
+  .navbar-collapse {
     @include desktop {
       position: absolute;
       top: 80px;
       left: 0;
       width: 100%;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0, 0, 0, 0.7);
       z-index: 2;
       order: 2;
-      ul.navbar-nav{
+      ul.navbar-nav {
         padding: 16px 0;
         width: 100%;
-        li.nav-item{
+        li.nav-item {
           width: 100%;
           padding: 8px;
           text-align: center;
-          a{
+          a {
             color: #fff;
           }
         }
       }
     }
   }
-  .cart-icon{
+  .cart-icon {
     border-radius: 50px;
     @include desktop {
       margin-right: 16px;
@@ -101,13 +100,13 @@
       transition: all 0.3s;
       @include desktop {
         width: 48px;
-        .cart-count{
+        .cart-count {
           position: absolute;
           top: -2px;
           right: -2px;
         }
       }
-  }
+    }
     .material-symbols-outlined {
       font-size: 36px;
       @include desktop {
@@ -118,9 +117,9 @@
       background: darken($orange, 10%);
       transition: all 0.3s;
     }
-    .cart-count{
+    .cart-count {
       display: flex;
-      justify-content:center;
+      justify-content: center;
       align-items: center;
       background: $danger;
       color: #fff;
@@ -138,17 +137,17 @@
   height: 700px;
   overflow: hidden;
   transition: all 0.3s;
-  &.page-banner{
+  &.page-banner {
     height: 250px;
-    .banner-title{
+    .banner-title {
       top: 50%;
       left: 50%;
-      transform: translate(-50%,-50%);
+      transform: translate(-50%, -50%);
       bottom: initial;
       text-align: center;
     }
   }
-  @include desktop{
+  @include desktop {
     height: 400px;
   }
   img {
@@ -165,7 +164,7 @@
     color: #fff;
     font-weight: 600;
     font-size: 2rem;
-    .subtitle{
+    .subtitle {
       display: block;
       font-size: 1.125rem;
       margin-top: 24px;
@@ -231,7 +230,7 @@
         height: 160px;
         bottom: initial;
       }
-      @include iphone{
+      @include iphone {
         top: 34%;
         left: 0;
       }
@@ -248,7 +247,7 @@
         border-radius: 50%;
         overflow: hidden;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-        @include iphone{
+        @include iphone {
           width: 80%;
         }
         img {
@@ -264,11 +263,14 @@
         @include tablet-landscape {
           padding: 2rem 0;
         }
+        @include iphone {
+          width: 70%;
+        }
         .title {
           font-family: "Noto Sans TC";
           font-size: 1.5rem;
           font-weight: 600;
-          margin-bottom: 3rem;
+          margin-bottom: 2rem;
         }
         .info {
           margin-top: 16px;
@@ -278,20 +280,14 @@
           }
         }
         .more-btn {
-          color: inherit;
+          padding: 4px 12px;
+          border-radius: 30px;
+          color: #fff;
+          background: $orange;
           transition: all 0.3s;
-					i{
-						display: none;
-					}
-          &:hover {
-						padding: 4px 12px;
-						border-radius: 30px;
-            color: #fff;
-						background: $orange;
+          &:hover {          
+            padding: 4px 16px;  
             transition: all 0.3s;
-						i{
-							display: inline-block;
-						}
           }
         }
       }
@@ -303,14 +299,32 @@
       border: solid 3px $orange;
       width: 74px;
       height: 74px;
+      @include iphone{
+        width: 48px;
+        height: 48px;
+      }
     }
     .swiper-button-prev {
       left: -6%;
       right: auto;
+      @include iphone{
+        left: 0;
+        &::after{
+          font-size: 1rem;
+          font-weight: 900;
+        }
+      }
     }
     .swiper-button-next {
       left: auto;
       right: -6%;
+      @include iphone{
+        right: 0;
+        &::after{
+          font-size: 1rem;
+          font-weight: 900;
+        }
+      }
     }
   }
   #about {
@@ -362,6 +376,10 @@
       box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
       margin-top: 4rem;
       margin-bottom: 7rem;
+      @include iphone {
+        margin-left: 16px;
+        margin-right: 16px;
+      }
       .headshot {
         position: absolute;
         top: -64px;
@@ -398,10 +416,10 @@
             min-width: 32px;
             margin-right: 32px;
           }
-					i{
-						color: $yellow;
-						margin: 0 2px;
-					}
+          i {
+            color: $yellow;
+            margin: 0 2px;
+          }
         }
         .comment {
           display: flex;
@@ -417,38 +435,38 @@
     }
   }
 }
-#page-content{
-	padding-top: 4rem;
+#page-content {
+  padding-top: 4rem;
   padding-bottom: 4rem;
-	min-height: 500px;
-	.page-title{
+  min-height: 500px;
+  .page-title {
     font-size: 1.5rem;
     font-weight: 600;
     text-align: center;
     margin-bottom: 24px;
   }
-  #product-list{
+  #product-list {
     list-style: none;
     padding-left: 0;
     margin-bottom: 0;
-    .product-item{
+    .product-item {
       position: relative;
       text-align: center;
       margin-top: 24px;
       margin-bottom: 24px;
       transition: all 0.3s;
-      .title{
+      .title {
         position: relative;
         color: $orange;
-        font-family: 'Noto Sans TC';
+        font-family: "Noto Sans TC";
         font-weight: 500;
         font-size: 1.5rem;
         margin-top: 24px;
-        .price{
+        .price {
           font-size: 1.125rem;
         }
       }
-      .img{
+      .img {
         position: relative;
         display: block;
         width: 300px;
@@ -458,27 +476,27 @@
         border: solid 3px $orange;
         border-radius: 50%;
         overflow: hidden;
-        &::after{
-          content: '';
+        &::after {
+          content: "";
           position: absolute;
           top: 50%;
           left: 50%;
-          transform: translate(-50%,-50%);
+          transform: translate(-50%, -50%);
           display: block;
           width: 0%;
           height: 0%;
           border-radius: 50%;
-          background: rgba($orange,0.5);
+          background: rgba($orange, 0.5);
           transition: all 0.3s;
         }
-        img{
+        img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           object-position: center;
         }
       }
-      .btn{
+      .btn {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -487,20 +505,20 @@
         bottom: 84px;
         color: #fff;
         width: 68px;
-        height: 68px; 
+        height: 68px;
         border-radius: 50%;
         background: $orange;
         transition: all 0.3s;
-        a{
+        a {
           color: #fff;
           text-align: center;
         }
       }
-      &:hover{
-        .btn{
-          background: $blue; 
+      &:hover {
+        .btn {
+          background: $blue;
         }
-        .img::after{
+        .img::after {
           width: 100%;
           height: 100%;
           transition: all 0.3;
@@ -508,136 +526,137 @@
       }
     }
   }
-  #product-page{
-    .img{
+  #product-page {
+    .img {
       position: relative;
       margin: 0 12px;
       text-align: center;
       overflow: hidden;
-      img{
+      img {
         border: solid 3px $orange;
         border-radius: 50%;
         width: 100%;
         height: 100%;
-				max-height: 612px;
+        max-height: 612px;
         object-fit: cover;
         object-position: center;
-				transition: all 0.3s;
-				@include wide{
-					max-height: 432px;
-				}
-				@include desktop-992{
-					max-height: 312px;
-				}
-				@include tablet-landscape{
-					max-height: 492px;
-				}
-				@include tablet-portrait {
-					max-height: 454px;
-				}
-				@include iphone{
-					max-height: 366px;
-				}
+        transition: all 0.3s;
+        @include wide {
+          max-height: 432px;
+        }
+        @include desktop-992 {
+          max-height: 312px;
+        }
+        @include tablet-landscape {
+          max-height: 492px;
+        }
+        @include tablet-portrait {
+          max-height: 454px;
+        }
+        @include iphone {
+          max-height: 366px;
+        }
       }
     }
-    .info{
+    .info {
       padding: 24px;
       margin-top: 30px;
-      .badge{
+      .badge {
         padding: 7px 24px;
         font-size: 1rem;
         border-radius: 30px;
       }
-      .title{
+      .title {
         position: relative;
-        font-family: 'Noto Sans TC';
+        font-family: "Noto Sans TC";
         font-weight: 600;
         font-size: 1.5rem;
         margin-top: 24px;
       }
-      .price{
+      .price {
         margin-top: 16px;
         margin-bottom: 34px;
-        font-family: 'Noto Sans TC';
+        font-family: "Noto Sans TC";
         font-weight: 500;
       }
-      .description{
+      .description {
         margin-top: 32px;
       }
-      .content{
+      .content {
         margin-top: 16px;
       }
-      .btn-primary{
+      .btn-primary {
         padding: 9px 30px;
         text-align: center;
         color: #fff;
         font-weight: 600;
         border-radius: 30px;
         margin-top: 5rem;
-        &:hover{
-          background: lighten($orange,0.5);
+        &:hover {
+          background: lighten($orange, 0.5);
         }
       }
-			@include desktop-992{
-				margin-top: 0;
-				.title{
-					margin-top: 16px;
-				}
-				.price{
-					margin-bottom: 16px;
-				}
-				.description{
-					margin-top: 16px;
-				}
-				.btn-primary{
-					margin-top: 32px;
-				}
-			}
+      @include desktop-992 {
+        margin-top: 0;
+        .title {
+          margin-top: 16px;
+        }
+        .price {
+          margin-bottom: 16px;
+        }
+        .description {
+          margin-top: 16px;
+        }
+        .btn-primary {
+          margin-top: 32px;
+        }
+      }
     }
   }
-	#product-order{
-		padding: 0 32px;
-	}
-  #order-list{
-    .order-item{
+  #product-order {
+    padding: 0 32px;
+  }
+  #order-list {
+    .order-item {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       position: relative;
       transition: all 0.3s;
-      &:hover{
-        .order-btn{
-          background: rgba($blue , 0.6);
+      &:hover {
+        .order-btn {
+          background: rgba($blue, 0.6);
           border: solid 1px $blue;
           z-index: 2;
           transition: all 0.2s;
         }
       }
-      .img{
+      .img {
         width: 200px;
         height: 200px;
         border: solid 3px $orange;
         border-radius: 50%;
         overflow: hidden;
-        img{
+        img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           object-position: center;
         }
       }
-      .title{
+      .title {
+        font-size: 1.25rem;
         font-weight: 600;
         color: $orange;
-        margin-top: 20px;
-        margin-bottom: 10px;
+        margin-top: 22px;
+        margin-bottom: 8px;
       }
-      .price{
+      .price {
         font-weight: 600;
         color: $orange;
       }
-      .order-btn{
+      .order-btn {
         width: 194px;
         height: 194px;
         position: absolute;
@@ -649,106 +668,116 @@
         color: #fff;
         background: transparent;
         border-radius: 50%;
-        transition: all  0.3s;
+        border: none;
+        transition: all 0.3s;
         z-index: -1;
+        @include desktop{
+          top: 180px;
+          border-radius: 30px;
+          width: auto;
+          height: auto;
+          color: #fff;
+          background: $blue;
+          z-index: 2;
+        }
       }
     }
   }
-	#about-page{
-		.img{
-			width: 100%;
-			height: 425px;
-			border-radius: 8px;
-			overflow: hidden;
-			img{
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				object-position: center;
-			}
-		}
-		.info{
-			height: 100%;
-			padding: 0 24px;
-			margin-bottom: 24px;
-			display: flex;
-			justify-content: center;
-			align-items: start;
-			flex-direction: column;
-			.subtitle{
-				font-family: "Noto Sans TC", sans-serif;
-				font-weight: 500;
-				font-size: 1.5rem;
-				color: $orange;
-				margin-bottom: 24px;
-			}
-			p{
-				line-height: 2;
-			}
-		}
-	}
-	#news-page{
-		.news-item{
-			padding: 16px;
-			border-bottom: solid 1px #e1e1e1;
-			.date{
-				margin-bottom: 16px;
-			}
-			.title{
-				color: $text;
-				font-weight: 600;
-				&:hover{
-					color: $orange;
-				}
-			}
-		}
-	}
-  #checkOrder{
-    .form{
+  #about-page {
+    .img {
+      width: 100%;
+      height: 425px;
+      border-radius: 8px;
+      margin: 16px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    .info {
+      height: 100%;
+      padding: 0 24px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      flex-direction: column;
+      .subtitle {
+        font-family: "Noto Sans TC", sans-serif;
+        font-weight: 500;
+        font-size: 1.5rem;
+        color: $orange;
+        margin-bottom: 24px;
+      }
+      p {
+        line-height: 2;
+      }
+    }
+  }
+  #news-page {
+    .news-item {
+      padding: 16px;
+      border-bottom: solid 1px #e1e1e1;
+      .date {
+        margin-bottom: 16px;
+      }
+      .title {
+        color: $text;
+        font-weight: 600;
+        &:hover {
+          color: $orange;
+        }
+      }
+    }
+  }
+  #checkOrder {
+    .form {
       display: flex;
       justify-content: center;
       align-items: center;
-      .form-label{
+      .form-label {
         min-width: 80px;
         margin-bottom: 0;
       }
-      .form-control{
+      .form-control {
         margin: 0 12px;
       }
-      .btn-primary{
+      .btn-primary {
         min-width: 100px;
       }
     }
-		.query{
-			margin-top: 24px;
-			word-break: break-all;
-			// border-top: solid 1px #eee;
-			.title{
-				font-size: 1.5rem;
-				font-weight: 600;
-				text-align: center;
-				margin: 16px 0;
-				border-bottom: solid 1px #eee;
-			}
-		}
+    .query {
+      margin-top: 24px;
+      word-break: break-all;
+      // border-top: solid 1px #eee;
+      .title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-align: center;
+        margin: 16px 0;
+        border-bottom: solid 1px #eee;
+      }
+    }
   }
 }
 footer {
-  padding-top: 3rem;
   background: #272727;
   color: #fff;
-  .footer-info{
-    @include iphone{
+  .footer-info {
+    @include iphone {
       order: 2;
     }
     ul {
       padding: 48px;
       list-style: none;
       margin-top: 3rem;
-      @include tablet-landscape{
+      @include tablet-landscape {
         margin-top: 0;
       }
-      @include iphone{
+      @include iphone {
         padding-top: 0;
       }
       li {
@@ -761,12 +790,12 @@ footer {
     @include tablet-portrait {
       text-align: left;
     }
-    @include iphone{
+    @include iphone {
       order: 1;
     }
-    img{
-      margin: 4rem 0 7rem;
-      @include tablet-landscape{
+    img {
+      margin: 4rem 0 4rem;
+      @include tablet-landscape {
         width: 120px;
         margin: 2rem 0;
       }

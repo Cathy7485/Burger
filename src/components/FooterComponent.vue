@@ -6,7 +6,6 @@
           <ul>
             <li>電話：06-555-8888</li>
             <li>地址：臺南市永康區漢堡區漢堡路77號</li>
-            <router-link to="/Login">後台管理</router-link>
           </ul>
         </div>
         <div class="col-sm-6 footer-logo">

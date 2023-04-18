@@ -8,16 +8,16 @@
         :key="product.id"
       >
         <div class="img">
-          <img :src="product.imageUrl" width="200" alt="" />
+          <img :src="product.imageUrl" width="200" :alt="product.title" />
         </div>
         <div class="title">
-          <span class="mb-2">{{ product.title }}</span><br>
-          <span class="price">NT {{ product.price }}</span>
+          <span class="mb-2">{{ product.title }}</span
+          ><br />
+          <!-- <span class="price">NT {{ product.price }}</span> -->
         </div>
         <div class="">
-          <RouterLink
-            :to="`/product/${product.id}`"
-            class="btn">more</RouterLink
+          <RouterLink :to="`/product/${product.id}`" class="btn"
+            >more</RouterLink
           >
         </div>
       </li>
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import PageBanner from "../../components/PageBanner.vue";
+import PageBanner from "@/components/PageBanner.vue";
 import { RouterLink } from "vue-router";
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
@@ -37,7 +37,7 @@ export default {
       pageTitle: {
         title: "餐點菜單",
       },
-      fullPage: false, // loading不要滿版
+      fullPage: false,
     };
   },
   components: {
@@ -49,16 +49,16 @@ export default {
       const loader = this.$loading.show({
         container: this.fullPage ? null : this.$refs.formContainer, //不要滿版，需要設定一個vi-parent，只loading該區塊
         canCancel: false,
-        onCancel: this.onCancel
-      })
+        onCancel: this.onCancel,
+      });
       this.$http
         .get(`${VITE_URL}api/${VITE_PATH}/products/all`)
         .then((res) => {
           this.products = res.data.products;
-          loader.hide()
+          loader.hide();
         })
         .catch((err) => {
-          console.log(err.response.data.message);
+          alert(err.response.data.message);
         });
     },
   },

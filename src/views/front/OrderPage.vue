@@ -2,9 +2,13 @@
   <PageBanner :pageTitle="pageTitle"></PageBanner>
   <section id="page-content" class="container vl-parent" ref="formContainer">
     <div id="order-list" class="row">
-      <div class="order-item col-xl-3 col-lg-4 col-sm-6 gy-4" v-for="product in products" :key="product.id">
+      <div
+        class="order-item col-xl-3 col-lg-4 col-sm-6 gy-4"
+        v-for="product in products"
+        :key="product.id"
+      >
         <div class="img">
-          <img :src="product.imageUrl" width="100" alt="" />
+          <img :src="product.imageUrl" width="100" :alt="product.title" />
         </div>
         <div class="text-center mb-4">
           <div class="title">{{ product.title }}</div>
@@ -15,10 +19,10 @@
           class="order-btn"
           @click="() => addToCart(product.id)"
         >
-          <i
+          <!-- <i
             class="fas fa-spinner fa-pulse"
             v-if="product.id === loadingStatus.loadingItem"
-          ></i>
+          ></i> -->
           加入購物車
         </button>
       </div>
@@ -27,10 +31,10 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "pinia";
+import { mapActions } from "pinia";
 import { RouterLink } from "vue-router";
-import PageBanner from "../../components/PageBanner.vue";
-import cartStore from "../../stores/cart";
+import PageBanner from "@/components/PageBanner.vue";
+import cartStore from "@/stores/cartStore";
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
 export default {
@@ -62,16 +66,17 @@ export default {
           loader.hide();
         })
         .catch((err) => {
-          console.log(err.response.data.message);
+          this.$swal({
+            title: err.response.data.message,
+            icon: "error",
+            showConfirmButton: false,
+          });
         });
     },
     ...mapActions(cartStore, ["addToCart"]),
   },
   mounted() {
     this.getProducts();
-  },
-  computed: {
-    ...mapState(cartStore, ["loadingStatus"]),
   },
 };
 </script>

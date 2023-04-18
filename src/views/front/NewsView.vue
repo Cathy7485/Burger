@@ -1,6 +1,6 @@
 <template>
   <PageBanner :pageTitle="pageTitle"></PageBanner>
-  <section id="page-content" class="container">
+  <section id="page-content" class="container" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
 		<div id="news-page" class="row justify-content-center">
 			<div class="col-10">
 				<div class="news-item">
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import PageBanner from "../../components/PageBanner.vue";
+import PageBanner from "@/components/PageBanner.vue";
 export default {
   data() {
     return {

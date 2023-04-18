@@ -48,7 +48,7 @@
                     />
                     <img
                       :src="tempProduct.imagesUrl[key]"
-                      alt=""
+                      :alt="tempProduct.title"
                       class="img-fluid"
                     />
                   </template>
@@ -61,6 +61,7 @@
                       !tempProduct.imagesUrl.length ||
                       tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]
                     "
+                    type="button"
                   >
                     新增圖片
                   </button>

@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import PageBanner from "../../components/PageBanner.vue";
+import PageBanner from "@/components/PageBanner.vue";
 const { VITE_URL } = import.meta.env;
 
 export default {
