@@ -3,38 +3,52 @@
   <section id="page-content" class="container">
     <div class="row">
       <div class="page-title">管理登入</div>
-      <form class="form-signin col-8 m-auto">
+      <VForm 
+				class="form-signin col-8 m-auto" 
+				v-slot="{ errors }"
+				@submit="login"
+				>
         <div class="form-floating mb-3">
-          <input
-            type="email"
-            class="form-control"
-            v-model="user.username"
-            id="floatingInput"
-            placeholder="name@example.com"
-            required
-            autofocus
-          />
-          <label for="floatingInput">Email address</label>
+					<VField
+						id="email"
+						name="email"
+						type="email"
+						v-model="user.username"
+						class="form-control"
+						:class="{ 'is-invalid': errors['email'] }"
+						placeholder="name@example.com"
+						rules="email|required"
+					></VField>
+					<ErrorMessage
+						name="email"
+						class="invalid-feedback"
+					></ErrorMessage>
+          <label for="email">Email address</label>
         </div>
         <div class="form-floating">
-          <input
-            type="password"
-            class="form-control"
-            v-model="user.password"
-            id="floatingPassword"
-            placeholder="Password"
-            required
-          />
-          <label for="floatingPassword">Password</label>
+					<VField
+						id="password"
+						name="password"
+						type="password"
+						v-model="user.password"
+						class="form-control"
+						:class="{ 'is-invalid': errors['password'] }"
+						placeholder="Password"
+						rules="required"
+					></VField>
+					<ErrorMessage
+						name="password"
+						class="invalid-feedback"
+					></ErrorMessage>
+          <label for="password">Password</label>
         </div>
         <button
           class="btn btn-lg btn-primary w-100 mt-5"
-          type="button"
-          @click="login"
+          type="submit"
         >
           登入
         </button>
-      </form>
+      </VForm>
     </div>
   </section>
 </template>
@@ -66,8 +80,6 @@ export default {
         .post(url, this.user)
         .then((res) => {
           const { token, expired } = res.data;
-          // 寫入 cookie token
-          // expires 設置有效時間
           document.cookie = `hexToken=${token}; expires=${new Date(expired)};`;
           this.$router.push("/admin/products");
           this.$swal({

@@ -12,6 +12,7 @@
 			<a href="#!" @click.prevent="logout">登出</a>
 	</nav>
 </template>
+
 <script>
 export default {
 	data() {

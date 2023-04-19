@@ -81,6 +81,7 @@
   </div>
   <!-- Modal -->
 </template>
+
 <script>
 import { Modal } from "bootstrap";
 import { mapActions, mapState } from "pinia";

@@ -22,8 +22,8 @@ import zhTW from "@vee-validate/i18n/dist/locale/zh_TW.json";
 defineRule("email", email);
 defineRule("required", required);
 configure({
-  generateMessage: localize({ zh_TW: zhTW }), // 載入繁體中文語系
-  validateOnInput: true, // 當輸入任何內容直接進行驗證
+  generateMessage: localize({ zh_TW: zhTW }), 
+  validateOnInput: true, 
 });
 setLocale("zh_TW");
 

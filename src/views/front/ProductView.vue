@@ -35,14 +35,17 @@
               <div class="d-block">{{ product.content }}</div>
             </div>
           </div>
-          <button
-            class="btn btn-primary"
-            type="button"
-            @click="() => addToCart(product.id)"
-          >
-            加入購物車
-            <!-- <i class="fas fa-spinner fa-pulse" v-if="product.id === loadingStatus.loadingItem"></i> -->
-          </button>
+					<div class="buttons">
+						<button
+							class="btn btn-primary"
+							type="button"
+							@click="() => addToCart(product.id)"
+						>
+							加入購物車
+							<!-- <i class="fas fa-spinner fa-pulse" v-if="product.id === loadingStatus.loadingItem"></i> -->
+						</button>
+						<RouterLink to="/products" class="btn btn-outline-secondary">回菜單列表</RouterLink>
+					</div>
         </div>
       </div>
     </div>
@@ -69,7 +72,7 @@ export default {
   methods: {
     getProduct() {
       const loader = this.$loading.show({
-        container: this.fullPage ? null : this.$refs.formContainer, //不要滿版，需要設定一個vi-parent，只loading該區塊
+        container: this.fullPage ? null : this.$refs.formContainer, 
         canCancel: false,
         onCancel: this.onCancel,
       });

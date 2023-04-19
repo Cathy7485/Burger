@@ -66,7 +66,6 @@ export default {
       this.$http
         .get(`${VITE_URL}api/${VITE_PATH}/orders`)
 					.then((res) => {
-						// alert(res.data.orders)
 						this.orders = res.data.orders;
 					})
 					.catch((err) => {

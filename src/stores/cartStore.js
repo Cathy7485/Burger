@@ -80,7 +80,6 @@ const cartStore = defineStore('cart',{
           })
         );
     },
-
     updateCartItem(item) {
       const data = {
         product_id: item.product.id, // 產品的id
@@ -104,6 +103,7 @@ const cartStore = defineStore('cart',{
           })
         );
     },
+		
   },
 })
 
