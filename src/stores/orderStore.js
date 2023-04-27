@@ -16,7 +16,11 @@ export default defineStore('orderStore',{
           this.pagination = res.data.pagination;
         })
         .catch((err) => {
-          alert(err.response.data.message);
+					swal.fire({
+          icon: 'error',
+          title: `${err.response.data.message}`,
+          showConfirmButton: false,
+        })
         })
     },
 	},

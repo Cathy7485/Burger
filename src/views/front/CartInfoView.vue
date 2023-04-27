@@ -161,7 +161,6 @@ export default {
 					this.getCart();
 				})
 				.catch((err) => {
-					console.log(err)
 					this.$swal({
 						title: `建立訂單錯誤`,
 						icon: "error",

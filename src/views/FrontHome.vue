@@ -1,10 +1,10 @@
 <template>
-  <HeaderComponent></HeaderComponent>
-  <HomepageBanner></HomepageBanner>
+  <HeaderComponent />
+  <HomepageBanner />
   <section id="content">
-    <RouterView></RouterView>
+    <RouterView />
   </section>
-  <FooterComponent></FooterComponent>
+  <FooterComponent />
 </template>
 
 <script>

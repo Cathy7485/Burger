@@ -58,7 +58,11 @@ export default {
           loader.hide();
         })
         .catch((err) => {
-          alert(err.response.data.message);
+					this.$swal({
+						title: err.response.data.message,
+						icon: 'error',
+						showConfirmButton: false,
+					})
         });
     },
   },

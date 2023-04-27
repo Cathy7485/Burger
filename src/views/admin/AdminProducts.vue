@@ -138,21 +138,32 @@ export default {
           this.productModal.hide();
         })
         .catch((err) => {
-          alert(err.response.data.message);
+					this.$swal({
+						title: err.response.data.message,
+						icon: 'error',
+						showConfirmButton: false,
+					})
         });
     },
     deleteProduct() {
-      const url = `${VITE_URL}api/${VITE_PATH}/admin/order/${this.tempProduct.id}`;
+      const url = `${VITE_URL}api/${VITE_PATH}/admin/product/${this.tempProduct.id}`;
       this.$http
         .delete(url)
         .then(() => {
-          alert(url);
           this.getProducts();
           this.deleteModal.hide();
-          alert("刪除成功！");
+					this.$swal({
+						title:'刪除成功！',
+						icon: 'success',
+						showConfirmButton: false,
+					});
         })
         .catch((err) => {
-          alert(err.response.data.message);
+					this.$swal({
+						title: err.response.data.message,
+						icon: 'error',
+						showConfirmButton: false,
+					})
         });
     },
     openModal(status, product) {
@@ -173,12 +184,6 @@ export default {
     },
   },
   mounted() {
-    const token = document.cookie.replace(
-      /(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/,
-      "$1"
-    );
-    this.$http.defaults.headers.common.Authorization = token;
-
     this.getProducts();
     this.productModal = new Modal("#productModal");
     this.deleteModal = new Modal("#deleteModal");

@@ -15,23 +15,23 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent" ref="collapse">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<routerLink to="/about" @click="() => CollapseNav()">品牌故事</routerLink>
+							<routerLink to="/about">品牌故事</routerLink>
 						</li>
 						<li class="nav-item">
-							<routerLink to="/news" @click="() => CollapseNav()">最新公告</routerLink>
+							<routerLink to="/news">最新公告</routerLink>
 						</li>
 						<li class="nav-item">
-							<routerLink to="/products" @click="() => CollapseNav()">餐點菜單</routerLink>
+							<routerLink to="/products">餐點菜單</routerLink>
 						</li>
 						<li class="nav-item">
-							<routerLink to="/order" @click="() => CollapseNav()">線上點餐</routerLink>
+							<routerLink to="/order">線上點餐</routerLink>
 						</li>
 						<li class="nav-item">
-							<routerLink to="/orderList" @click="() => CollapseNav()">訂單查詢</routerLink>
+							<routerLink to="/orderList">訂單查詢</routerLink>
 						</li>
 					</ul>
 				</div>
-				<routerLink to="/cart" class="cart-icon" @click="() => CollapseNav()">
+				<routerLink to="/cart" class="cart-icon">
 					<div class="cart-btn">
 						<span class="material-symbols-outlined">shopping_cart</span>
 						<div class="cart-count">{{ carts.length }}</div>
@@ -45,7 +45,7 @@
 <script>
 import { mapActions, mapState } from "pinia";
 import cartStore from "../stores/cartStore";
-import Collapse from 'bootstrap/js/dist/collapse';
+import Collapse from "bootstrap/js/dist/collapse";
 
 export default {
 	data() {
@@ -53,20 +53,25 @@ export default {
 			menuCollapse: '',
 		}
 	},
+	watch: {
+		$route() {
+			this.closeCollapse();
+		}
+	},
 	computed: {
 		...mapState(cartStore, ['carts']) 
 	},
 	methods: {
 		...mapActions(cartStore, ['getCart']),
-		closeMenu() {
-			this.menuCollapse.hide()
-		}
+		closeCollapse() {
+			this.collapse.hide();
+		},
 	},
 	mounted() {
 		this.getCart();
-		this.menuCollapse = new Collapse(this.$refs.collapse, {
-			toggle: false
-		})
+		this.collapse = new Collapse(this.$refs.collapse, {
+			toggle: false,
+		});
 	}
 }
 </script>

@@ -116,12 +116,20 @@ export default {
       this.$http
         .delete(url)
         .then(() => {
-          this.getOrders(); //重新取得訂單資料
+          this.getOrders(); 
           this.deleteModal.hide();
-          alert("刪除成功！");
+          this.$swal({
+						title: '刪除成功！',
+						icon: 'success',
+						showConfirmButton: false,
+					});
         })
         .catch((err) => {
-          alert(err.response.data.message);
+          this.$swal({
+						title: err.response.data.message,
+						icon: 'error',
+						showConfirmButton: false,
+					});
         });
     },
     openModal(status, order) {
@@ -140,11 +148,6 @@ export default {
     },
   },
   mounted() {
-    const token = document.cookie.replace(
-      /(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/,
-      "$1"
-    );
-    this.$http.defaults.headers.common.Authorization = token;
     this.getOrders();
     this.orderModal = new Modal("#orderModal");
     this.deleteModal = new Modal("#deleteModal");

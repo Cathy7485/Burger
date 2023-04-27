@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import axios from 'axios';
+import swal from 'sweetalert2';
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
 export default defineStore('productStore',{
@@ -16,7 +17,11 @@ export default defineStore('productStore',{
           this.pagination = res.data.pagination;
         })
         .catch((err) => {
-          alert(err.response.data.message);
+          swal.fire({
+          icon: 'error',
+          title: `${err.response.data.message}`,
+          showConfirmButton: false,
+        })
         })
     },
   },
