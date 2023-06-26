@@ -133,13 +133,17 @@
 }
 #banner {
   position: relative;
-  max-height: 700px;
-  height: 700px;
+  max-height: 725px;
+  height: 725px;
   overflow: hidden;
   transition: all 0.3s;
   &.page-banner {
     height: 250px;
     .banner-title {
+			font-family: "Noto Sans TC", sans-serif;
+			font-size: 2.5rem;
+			-webkit-text-stroke: initial;
+			text-stroke: initial;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -156,18 +160,31 @@
     object-fit: cover;
     object-position: center;
   }
+	.burger-img{
+		width: 625px;
+		height: 550px;
+		position: absolute;
+		right: 94px;
+		bottom: 0;
+	}
   .banner-title {
     position: absolute;
     left: 10%;
-    bottom: 100px;
-    font-family: "Noto Sans TC", sans-serif;
+    top: calc(50% - 85px);
+    font-family: 'Dela Gothic One', cursive;
+		-webkit-text-stroke: 1.5px #185203;
+		text-stroke: 1.5px #185203;
     color: #fff;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 7.5rem;
+		z-index: 1;
     .subtitle {
+			font-family: "Noto Sans TC", sans-serif;
       display: block;
-      font-size: 1.125rem;
-      margin-top: 24px;
+      font-size: 1.25rem;
+			-webkit-text-stroke: initial;
+			text-stroke: initial;
+			color: #383838;
     }
   }
 }
