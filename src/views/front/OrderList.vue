@@ -1,14 +1,14 @@
 <template>
-  <PageBanner :pageTitle="pageTitle"></PageBanner>
-  <section id="page-content" class="container">
-    <div id="checkOrder" class="row">
-      <div class="col-lg-8 m-auto">
-        <div class="form">
-          <label for="idNum" class="form-label">訂單編號：</label>
-          <input type="text" id="idNum" class="form-control" placeholder="請輸入訂單編號" v-model="orderNum">
-          <button type="button" class="btn btn-primary" @click="searchOrder">送出</button>
-        </div>
-				<div class="query" >
+	<PageBanner :pageTitle="pageTitle"></PageBanner>
+	<section id="page-content" class="container">
+		<div id="checkOrder" class="row">
+			<div class="col-lg-8 m-auto">
+				<div class="form">
+					<label for="idNum" class="form-label">訂單編號：</label>
+					<input type="text" id="idNum" class="form-control" placeholder="請輸入訂單編號" v-model="orderNum">
+					<button type="button" class="btn btn-primary" @click="searchOrder">送出</button>
+				</div>
+				<div class="query">
 					<div class="title">查詢結果</div>
 					<div class="result" v-if="orderNum">
 						<div class="d-inline-block w-50">
@@ -37,10 +37,10 @@
 					</div>
 					<div class="text-center" v-else>請輸入訂單編號查詢訂單。</div>
 				</div>
-				
-      </div>
-    </div>
-  </section>
+
+			</div>
+		</div>
+	</section>
 </template>
 
 <script>
@@ -48,38 +48,38 @@ import PageBanner from "@/components/PageBanner.vue";
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
 export default {
-  data() {
-    return {
-      pageTitle: {
-        title: "訂單查詢",
-      },
-			orders:[],
+	data() {
+		return {
+			pageTitle: {
+				title: "訂單查詢",
+			},
+			orders: [],
 			orderNum: '',
 			orderResult: {},
-    };
-  },
-  components: {
-    PageBanner,
-  },
-	methods:{
-		getOrders(){
-      this.$http
-        .get(`${VITE_URL}api/${VITE_PATH}/orders`)
-					.then((res) => {
-						this.orders = res.data.orders;
-					})
-					.catch((err) => {
-						this.$swal({
+		};
+	},
+	components: {
+		PageBanner,
+	},
+	methods: {
+		getOrders() {
+			this.$http
+				.get(`${VITE_URL}api/${VITE_PATH}/orders`)
+				.then((res) => {
+					this.orders = res.data.orders;
+				})
+				.catch((err) => {
+					this.$swal({
 						title: err.response.data.message,
 						icon: 'error',
 						showConfirmButton: false,
 					})
-					});
+				});
 		},
 		searchOrder() {
 			let result = '';
-			result = this.orders.filter( i=>{
-				if(this.orderNum === i.id){
+			result = this.orders.filter(i => {
+				if (this.orderNum === i.id) {
 					return i
 				}
 			})
@@ -87,7 +87,7 @@ export default {
 			let newMonth = new Date(result[0].create_at * 1000).getMonth();
 			let newDay = new Date(result[0].create_at * 1000).getDate();
 			let newHour = new Date(result[0].create_at * 1000).getMinutes();
-			let newMinute =  new Date(result[0].create_at * 1000).getMinutes();
+			let newMinute = new Date(result[0].create_at * 1000).getMinutes();
 
 			this.orderResult.date = `${newYear}-${newMonth}-${newDay},${newHour}:${newMinute}`
 			this.orderResult.id = result[0].id;
@@ -98,7 +98,7 @@ export default {
 			this.orderResult.user = result[0].user;
 		}
 	},
-	mounted (){
+	mounted() {
 		this.getOrders();
 	}
 };

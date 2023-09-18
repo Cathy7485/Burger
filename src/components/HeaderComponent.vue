@@ -59,7 +59,7 @@ export default {
 		}
 	},
 	computed: {
-		...mapState(cartStore, ['carts']) 
+		...mapState(cartStore, ['carts'])
 	},
 	methods: {
 		...mapActions(cartStore, ['getCart']),

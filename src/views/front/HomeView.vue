@@ -56,9 +56,9 @@
 								每日新鮮直送的鮮蝦製作，鮮美口感的炸蝦佐洋蔥裹粉酥炸再搭配經典莎莎醬，每一口都新鮮！讓你回味無窮的滋味。
 							</div>
 							<RouterLink to="/product/-NLxrw51QUDM6LBVptVU" class="btn btn-primary">
-									更多資訊
-									<i class="fas fa-long-arrow-right"></i>
-								</RouterLink>
+								更多資訊
+								<i class="fas fa-long-arrow-right"></i>
+							</RouterLink>
 						</div>
 					</div>
 				</SwiperSlide>

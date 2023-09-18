@@ -3,7 +3,7 @@
 	<section id="page-content" class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<div >
+				<div>
 					<ul class="cartStep">
 						<li class="stepItem">
 							<p>Step <span class="numText">1</span></p>
@@ -39,7 +39,7 @@
 											<div>{{ orderItem.product.price.toLocaleString("zh-TW") }} 元</div>
 										</div>
 										<div class="ps-1"> X {{ orderItem.qty }}</div>
-										
+
 									</li>
 								</ul>
 								<div class="d-flex justify-content-between align-items-center p-1">
@@ -60,18 +60,18 @@
 									<li>訂單狀態：<span class="text-danger fw-bold">{{ is_paid ? "已付款" : "未付款" }}</span></li>
 									<li>
 										<div class="d-inline-block me-4">請選擇付款方式：</div>
-										<select name="payment" id="payment" class="form-select d-inline-block w-50" >
-										<option selected disabled>請選擇</option>
-										<option value="現金">現金</option>
-										<option value="信用卡">信用卡</option>
-									</select>
+										<select name="payment" id="payment" class="form-select d-inline-block w-50">
+											<option selected disabled>請選擇</option>
+											<option value="現金">現金</option>
+											<option value="信用卡">信用卡</option>
+										</select>
 									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
 					<div class="text-center mt-4">
-						<button type="button" class="btn btn-primary" @click="()=> payOrder()">確認付款</button>
+						<button type="button" class="btn btn-primary" @click="() => payOrder()">確認付款</button>
 					</div>
 				</div>
 			</div>

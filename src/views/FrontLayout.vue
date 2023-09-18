@@ -1,7 +1,7 @@
 <template>
-  <HeaderComponent />
-    <RouterView />
-  <FooterComponent />
+	<HeaderComponent />
+	<RouterView />
+	<FooterComponent />
 </template>
 
 <script>
@@ -11,11 +11,11 @@ import PageBanner from "../components/PageBanner.vue"
 import FooterComponent from "../components/FooterComponent.vue"
 
 export default {
-  components: {
-    RouterView,
+	components: {
+		RouterView,
 		HeaderComponent,
 		PageBanner,
 		FooterComponent,
-  },
+	},
 };
 </script>

@@ -167,7 +167,7 @@ export default {
 						showConfirmButton: false,
 					});
 				});
-			
+
 		},
 		phone(value) {
 			const phoneNumber = /^(09)[0-9]{8}$/;

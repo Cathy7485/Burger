@@ -1,6 +1,6 @@
 <template>
-  <PageBanner :pageTitle="pageTitle"></PageBanner>
-  <section id="page-content" class="container" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
+	<PageBanner :pageTitle="pageTitle"></PageBanner>
+	<section id="page-content" class="container" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
 		<div id="news-page" class="row justify-content-center">
 			<div class="col-10">
 				<div class="news-item">
@@ -27,11 +27,11 @@
 				</div>
 			</div>
 			<div class="col-10">
-					<div class="news-item">
-						<div class="date">2022/11/18</div>
-						<div class="title" title="最新優惠活動，即日起購買韓式洋釀炸雞一份，飲料半價優惠。">最新優惠活動，即日起購買韓式洋釀炸雞一份，飲料半價優惠。</div>
-					</div>
+				<div class="news-item">
+					<div class="date">2022/11/18</div>
+					<div class="title" title="最新優惠活動，即日起購買韓式洋釀炸雞一份，飲料半價優惠。">最新優惠活動，即日起購買韓式洋釀炸雞一份，飲料半價優惠。</div>
 				</div>
+			</div>
 		</div>
 	</section>
 </template>
@@ -39,15 +39,15 @@
 <script>
 import PageBanner from "@/components/PageBanner.vue";
 export default {
-  data() {
-    return {
-      pageTitle: {
-        title: "最新公告",
-      },
-    };
-  },
-  components: {
-    PageBanner,
-  },
+	data() {
+		return {
+			pageTitle: {
+				title: "最新公告",
+			},
+		};
+	},
+	components: {
+		PageBanner,
+	},
 };
 </script>
