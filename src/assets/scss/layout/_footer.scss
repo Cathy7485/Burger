@@ -1,0 +1,49 @@
+footer {
+  background: #272727;
+  color: #fff;
+}
+.footer-info {
+  @include iphone {
+    order: 2;
+  }
+  ul {
+    padding: 48px;
+    list-style: none;
+    margin-top: 3rem;
+    @include tablet-landscape {
+      margin-top: 0;
+    }
+    @include iphone {
+      padding-top: 0;
+    }
+    li {
+      margin-bottom: 16px;
+    }
+  }
+}
+.footer-logo {
+  text-align: right;
+  @include tablet-portrait {
+    text-align: left;
+  }
+  @include iphone {
+    order: 1;
+  }
+  img {
+    margin: 4rem 0 4rem;
+    @include tablet-landscape {
+      width: 120px;
+      margin: 2rem 0;
+    }
+    @include tablet-portrait {
+      width: 90px;
+      margin: 0 3rem 3rem;
+    }
+  }
+}
+.copyright {
+  width: 100%;
+  padding: 12px 0;
+  text-align: center;
+  border-top: solid 1px #fff;
+}

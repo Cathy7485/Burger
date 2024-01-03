@@ -12,7 +12,7 @@ import "vue-loading-overlay/dist/css/index.css"
 import App from './App.vue'
 import router from './router'
 
-import './assets/all.scss'
+import './assets/scss/main.scss'
 import 'bootstrap'
 
 import { Field, Form, ErrorMessage, defineRule, configure } from "vee-validate";

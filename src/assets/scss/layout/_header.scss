@@ -1,0 +1,133 @@
+.header-container {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.logoBox {
+  display: block;
+  width: 138px;
+  height: 80px;
+  margin-left: 100px;
+}
+.logo {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 5%;
+  z-index: 1;
+  @include desktop {
+    left: 0;
+  }
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  @include desktop {
+    justify-content: flex-end;
+    position: initial;
+  }
+  &-nav {
+    align-items: center;
+    a {
+      display: block;
+      color: #272727;
+      font-size: 1.125rem;
+      font-family: "Noto Sans TC", sans-serif;
+      font-weight: 500;
+      margin: 0 12px;
+      transition: all 0.3s;
+      &:hover {
+        color: $orange;
+        transition: all 0.3s;
+      }
+    }
+  }
+  &-toggler {
+    padding: 0;
+    border: none;
+    font-size: 2rem;
+    &:focus {
+      box-shadow: none;
+    }
+    @include desktop {
+      order: 2;
+      margin-right: 8px;
+    }
+    &-icon {
+      background-image: url(https://raw.githubusercontent.com/Cathy7485/Burger/main/src/assets/nav-icon.png);
+    }
+  }
+  &-collapse {
+    @include desktop {
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 2;
+      order: 2;
+      ul.navbar-nav {
+        padding: 16px 0;
+        width: 100%;
+        li.nav-item {
+          width: 100%;
+          padding: 8px;
+          text-align: center;
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+.cart-icon {
+  border-radius: 50px;
+  @include desktop {
+    margin-right: 16px;
+  }
+  .cart-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $orange;
+    color: #fff;
+    width: 106px;
+    height: 48px;
+    border-radius: 50px;
+    text-align: center;
+    transition: all 0.3s;
+    @include desktop {
+      width: 48px;
+      .cart-count {
+        position: absolute;
+        top: -2px;
+        right: -2px;
+      }
+    }
+  }
+  .material-symbols-outlined {
+    font-size: 36px;
+    @include desktop {
+      font-size: 30px;
+    }
+  }
+  &:hover {
+    background: darken($orange, 10%);
+    transition: all 0.3s;
+  }
+  .cart-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $danger;
+    color: #fff;
+    font-weight: 600;
+    padding: 2px 6px;
+    min-width: 24px;
+    height: 24px;
+    border-radius: 12px;
+  }
+}
