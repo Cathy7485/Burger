@@ -8,8 +8,8 @@
 				</div>
 			</routerLink>
 			<nav class="navbar navbar-expand-lg container">
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-					aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler" 
+					type="button" @click="navToggleCollapse">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent" ref="collapse">
@@ -63,6 +63,9 @@ export default {
 	},
 	methods: {
 		...mapActions(cartStore, ['getCart']),
+		navToggleCollapse(){
+			this.collapse.toggle();
+		},
 		closeCollapse() {
 			this.collapse.hide();
 		},
