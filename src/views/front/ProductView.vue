@@ -30,9 +30,8 @@
 						</div>
 					</div>
 					<div class="buttons">
-						<button class="btn btn-primary" type="button" @click="() => addToCart(product.id)">
+						<button class="btn btn-primary me-3" type="button" @click="() => addToCart(product.id)">
 							加入購物車
-							<!-- <i class="fas fa-spinner fa-pulse" v-if="product.id === loadingStatus.loadingItem"></i> -->
 						</button>
 						<RouterLink to="/products" class="btn btn-outline-secondary">回菜單列表</RouterLink>
 					</div>

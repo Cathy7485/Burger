@@ -1,5 +1,5 @@
 <template>
-	<div id="popular-products" class="container" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
+	<div class="popular-products container" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
 		<div class="row">
 			<div class="block-title">
 				<div class="title">暢銷漢堡</div>
