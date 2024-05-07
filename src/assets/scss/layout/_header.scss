@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background: #fff;
 }
 .logoBox {
   display: block;
@@ -23,6 +24,9 @@
 .navbar {
   display: flex;
   align-items: center;
+  width: 100%;
+  margin-left: 36px;
+  margin-right: 36px;
   @include desktop {
     justify-content: flex-end;
     position: initial;

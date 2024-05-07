@@ -1,47 +1,39 @@
-// color
-$blue:   #2D81FF !default;
-$orange: #FF782D !default;
-$yellow: #FFA800 !default;
-$green: #185203 !default;
-$text: #212529 !default;
-
-a{
-	text-decoration: none;
-	color: $orange;
-	&:hover{
-		color: $blue;
-	}
-}
-
-// btn
-.btn-primary{
+.btn-primary {
 	background: $orange;
 	border: solid 1px $orange;
 	border-radius: 30px;
-	&:hover{
+
+	&:hover {
 		background: lighten($color: $orange, $amount: 5%);
 		border: solid 1px $orange;
 	}
+
+	@include desktop {
+		padding: 6px 20px;
+	}
 }
-.btn-outline-secondary{
+
+.btn-outline-secondary {
 	background: #fff;
 	color: $orange;
 	border: solid 1px $orange;
 	border-radius: 30px;
-	&:hover{
+
+	&:hover {
 		background: lighten($color: $orange, $amount: 5%);
 		border: solid 1px $orange;
 		color: #fff;
 	}
 }
-.btn-outline-danger{
-	border-radius: 30px;
-}
-.btn-danger{
+
+.btn-outline-danger {
 	border-radius: 30px;
 }
 
-.box-outline{
+.btn-danger {
+	border-radius: 30px;
+}
+
+.box-outline {
 	border: solid 1px #eee;
 }
-
