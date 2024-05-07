@@ -1,12 +1,15 @@
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/bootstrap";
-@import "helpers/_variables";
-@import "layout/_grid";
+@import "base/_grid";
+@import "utils/_variables";
+@import "utils/_button";
 @import "layout/_header";
 @import "layout/_banner";
 @import "layout/_footer";
 @import "_layout";
+@import "pages/_homepage";
 @import "pages/_system";
+@import "vendors/_swiper";
 @import "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');

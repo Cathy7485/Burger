@@ -1,6 +1,6 @@
 <template>
-	<section id="banner" class="page-banner">
-		<img src="../assets/banner.jpg" alt="banner" />
+	<section class="page-banner">
+		<img src="../assets/images/banner.jpg" alt="banner" />
 		<div class="banner-title">
 			<span :pageTitle="pageTitle">{{ pageTitle.title }}</span>
 		</div>

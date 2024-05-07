@@ -4,10 +4,10 @@
 			<routerLink class="logoBox" to="/">
 				<div class="logo">
 					<img src="../assets/logo.svg" class="d-none d-lg-block d-xl-block" alt="logo" />
-					<img src="../assets/logo-xs.jpg" class="d-block d-lg-none" alt="logo-xs">
+					<img src="../assets/images/logo-xs.jpg" class="d-block d-lg-none" alt="logo-xs">
 				</div>
 			</routerLink>
-			<nav class="navbar navbar-expand-lg container">
+			<nav class="navbar navbar-expand-lg">
 				<button class="navbar-toggler" 
 					type="button" @click="navToggleCollapse">
 					<span class="navbar-toggler-icon"></span>

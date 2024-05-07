@@ -16,7 +16,7 @@
 					<ErrorMessage name="password" class="invalid-feedback"></ErrorMessage>
 					<label for="password">Password</label>
 				</div>
-				<button class="btn btn-lg btn-primary w-100 mt-5" type="submit">
+				<button class="btn btn-lg btn-primary w-100 mt-5" type="submit" :disabled="isProcessing">
 					登入
 				</button>
 			</VForm>
@@ -39,6 +39,7 @@ export default {
 				username: "",
 				password: "",
 			},
+			isProcessing: false,
 		};
 	},
 	components: {
@@ -46,6 +47,7 @@ export default {
 	},
 	methods: {
 		login() {
+			this.isProcessing= true;
 			const url = `${VITE_URL}admin/signin`;
 			this.$http
 				.post(url, this.user)

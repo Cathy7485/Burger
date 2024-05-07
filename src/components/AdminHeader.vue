@@ -1,16 +1,18 @@
 <template>
-	<nav id="header">
-		<routerLink to="/">
+	<div class="header">
+		<div class="container d-flex justify-content-between align-items-center">
 			<div class="logo">
-				<img src="../assets/logo-xs.jpg" class="d-inline-block" alt="logo-xs">
+				<img src="../assets/images/logo-xs.jpg" class="d-inline-block" alt="logo-xs">
 			</div>
-		</routerLink>
-		<routerLink to="/admin/products" :class="{ active: isActive }" @click="() => isActive = !isActive">餐點菜單管理</routerLink>
-		<routerLink to="/admin/orders">訂單管理</routerLink>
-		<routerLink to="/admin/news">最新公告管理</routerLink>
-		<routerLink to="/admin/about">品牌故事管理</routerLink>
-		<a href="#!" @click.prevent="logout">登出</a>
-	</nav>
+			<nav>
+				<routerLink class="me-4" to="/admin/products" :class="{ active: isActive }" @click="() => isActive = !isActive">餐點菜單管理</routerLink>
+				<routerLink class="me-4" to="/admin/orders">訂單管理</routerLink>
+				<routerLink class="me-4" to="/admin/news">最新公告管理</routerLink>
+				<routerLink class="me-4" to="/admin/about">品牌故事管理</routerLink>
+				<a href="#!" @click.prevent="logout">登出</a>
+			</nav>
+		</div>
+	</div>
 </template>
 
 <script>
