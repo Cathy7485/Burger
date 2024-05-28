@@ -103,7 +103,6 @@ const cartStore = defineStore('cart',{
           })
         );
     },
-		
   },
 })
 
