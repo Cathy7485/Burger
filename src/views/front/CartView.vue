@@ -46,9 +46,6 @@
 									</td>
 									<td>
 										{{ item.product.title }}
-										<!-- <div class="text-success">
-												已套用優惠券
-											</div> -->
 									</td>
 									<td>
 										<div class="input-group input-group-sm" style="width: 65%">
@@ -57,10 +54,6 @@
 													{{ i }}
 												</option>
 											</select>
-											<!-- <div class="input-group mb-3">
-													<input min="1" type="number" class="form-control">
-													<span class="input-group-text" id="basic-addon2">{{ }}</span>
-												</div> -->
 										</div>
 									</td>
 									<td class="text-end">
@@ -75,10 +68,6 @@
 								<td colspan="3" class="text-end">總計</td>
 								<td class="text-end">{{ total.toLocaleString("zh-TW") }}</td>
 							</tr>
-							<!-- <tr>
-								<td colspan="3" class="text-end text-success">折扣價</td>
-								<td class="text-end text-success">{{ carts.final_total }}</td>
-							</tr> -->
 						</tfoot>
 					</table>
 					<div class="text-end mt-4">
@@ -107,7 +96,12 @@ export default {
 		PageBanner,
 	},
 	computed: {
-		...mapState(cartStore, ["carts", "total", "final_total", "data"]),
+		...mapState(cartStore, [
+			"carts",
+			"total",
+			"final_total",
+			"data"
+		]),
 	},
 	methods: {
 		...mapActions(cartStore, [

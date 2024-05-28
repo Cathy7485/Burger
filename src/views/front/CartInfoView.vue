@@ -44,9 +44,6 @@
 										<tr v-for="item in carts" :key="item.id">
 											<td>
 												{{ item.product.title }}
-												<!-- <div class="text-success">
-														已套用優惠券
-													</div> -->
 											</td>
 											<td>
 												<div>
@@ -65,10 +62,6 @@
 										<td colspan="2" class="text-end">總計</td>
 										<td class="text-end">{{ total.toLocaleString("zh-TW") }}</td>
 									</tr>
-									<!-- <tr>
-										<td colspan="3" class="text-end text-success">折扣價</td>
-										<td class="text-end text-success">{{ carts.final_total }}</td>
-									</tr> -->
 								</tfoot>
 							</table>
 						</div>

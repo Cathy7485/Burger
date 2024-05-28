@@ -11,10 +11,6 @@
 					<span class="price">NT {{ product.price }}</span>
 				</div>
 				<button type="button" class="order-btn" @click="() => addToCart(product.id)">
-					<!-- <i
-            class="fas fa-spinner fa-pulse"
-            v-if="product.id === loadingStatus.loadingItem"
-          ></i> -->
 					加入購物車
 				</button>
 			</div>

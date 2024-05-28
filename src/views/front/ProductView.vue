@@ -86,6 +86,5 @@ export default {
 	mounted() {
 		this.getProduct();
 	},
-	computed: {},
 };
 </script>

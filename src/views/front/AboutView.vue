@@ -4,7 +4,7 @@
 		<div id="about-page" class="row">
 			<div class="col-lg-6">
 				<div class="img" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
-					<img src="https://raw.githubusercontent.com/Cathy7485/Burger/main/src/assets/images/clerk.jpg" alt="店員" />
+					<img src="@/assets/images/clerk.jpg" alt="店員" />
 				</div>
 			</div>
 			<div class="col-lg-6">
@@ -28,12 +28,12 @@
 			</div>
 			<div class="col-lg-6">
 				<div class="img" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
-					<img src="https://raw.githubusercontent.com/Cathy7485/Burger/main/src/assets/images/dough.jpg" alt="手工做麵" />
+					<img src="@/assets/images/dough.jpg" alt="手工做麵" />
 				</div>
 			</div>
 			<div class="col-lg-6">
 				<div class="img" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
-					<img src="https://raw.githubusercontent.com/Cathy7485/Burger/main/src/assets/images/farming.jpg" alt="產線合作" />
+					<img src="@/assets/images/farming.jpg" alt="產線合作" />
 				</div>
 			</div>
 			<div class="col-lg-6">
