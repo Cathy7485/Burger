@@ -3,7 +3,7 @@
 	<section id="page-content" class="container vl-parent" ref="formContainer">
 		<ul id="product-list" class="row">
 			<li 
-				class="product-item col-lg-4 col-md-6" 
+				class="product-page-item col-lg-4 col-md-6" 
 				v-for="product in products" 
 				:key="product.id">
 				<div class="img">
