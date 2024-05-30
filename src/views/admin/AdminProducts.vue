@@ -59,10 +59,9 @@
 
 <script>
 import { Modal } from "bootstrap";
-import { mapActions, mapState } from "pinia";
+import { mapState } from "pinia";
 import productModal from "@/components/productModal.vue";
 import deleteModal from "@/components/deleteModal.vue";
-import productStore from "@/stores/productStore";
 import productPagination from "@/components/productPagination.vue";
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
@@ -88,7 +87,21 @@ export default {
 		...mapState(productStore, ["products", "pages"]),
 	},
 	methods: {
-		...mapActions(productStore, ["getProducts"]),
+		getProducts(pages = 1) { 
+      const url = `${VITE_URL}api/${VITE_PATH}/admin/products/?page=${pages}`;
+      axios.get(url)
+        .then((res) => {
+          this.productsData = res.data.products;
+          this.pagination = res.data.pagination;
+        })
+        .catch((err) => {
+          swal.fire({
+          icon: 'error',
+          title: `${err.response.data.message}`,
+          showConfirmButton: false,
+        })
+        })
+    },
 		updateProduct() {
 			let url = `${VITE_URL}api/${VITE_PATH}/admin/product`;
 			//用this.isNew 判斷API要怎麼運行
