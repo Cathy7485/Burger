@@ -26,21 +26,20 @@
 							<p>完成訂購</p>
 						</li>
 					</ul>
-					<table class="table align-middle box-outline">
+					<table class="table align-middle box-outline cart-table">
 						<thead>
-							<tr>
+							<tr class="title-bg">
 								<th></th>
 								<th>品名</th>
 								<th style="width: 150px">數量/單位</th>
-								<th>單價</th>
+								<th class="text-end">單價</th>
 							</tr>
 						</thead>
 						<tbody>
 							<template v-if="carts">
 								<tr v-for="item in carts" :key="item.id">
 									<td>
-										<button type="button" class="btn btn-outline-danger btn-sm" @click="() => deleteItem(item)">
-											<!-- <i class="fas fa-spinner fa-pulse"></i> -->
+										<button type="button" class="delete-button" @click="() => deleteItem(item)">
 											x
 										</button>
 									</td>
@@ -58,7 +57,7 @@
 									</td>
 									<td class="text-end">
 										<!-- <small class="text-success">折扣價：</small> -->
-										{{ item.total.toLocaleString("zh-TW") }}
+										{{ item.total.toLocaleString("zh-TW") }} 元
 									</td>
 								</tr>
 							</template>
@@ -66,7 +65,7 @@
 						<tfoot>
 							<tr class="text-danger">
 								<td colspan="3" class="text-end">總計</td>
-								<td class="text-end">{{ total.toLocaleString("zh-TW") }}</td>
+								<td class="text-end">{{ total.toLocaleString("zh-TW") }} 元</td>
 							</tr>
 						</tfoot>
 					</table>

@@ -1,0 +1,30 @@
+.cart-table{
+  border: solid 1px #000;
+  font-weight: 600;
+}
+.title-bg{
+  background: green;
+  // font-weight: 600;
+  th{
+    color: #fff;
+  }
+}
+.delete-button{
+  display: block;
+  width: 26px;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  border: solid 1px #000;
+  color: #fff;
+  box-shadow: none;
+  transition: all .3s;
+  &:hover{
+    background: yellow;
+    color: #000;
+    transition: all .3s;
+  }
+}
+.order-detail{
+  border: solid 1px #000;
+}
