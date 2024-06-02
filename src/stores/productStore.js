@@ -24,9 +24,4 @@ export default defineStore('productStore',{
         })
     },
   },
-  // getters: {
-  //   products: ({ products })=>{
-  //     return products
-  //   },
-  // }
 })
