@@ -143,9 +143,9 @@ export default {
 	},
 	mounted() {
 		this.getOrder();
-		this.collapse = new Collapse(this.$refs.collapse, {
-			toggle: false,
-		});
+		// this.collapse = new Collapse(this.$refs.collapse, {
+			// toggle: false,
+		// });
 	},
 };
 </script>
