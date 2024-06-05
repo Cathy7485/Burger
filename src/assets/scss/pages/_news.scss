@@ -1,0 +1,17 @@
+.news-item {
+  padding: 16px;
+  border-bottom: solid 1px #e1e1e1;
+}
+
+.news-date {
+  margin-bottom: 16px;
+}
+
+.news-title {
+  color: $black;
+  font-weight: 600;
+
+  &:hover {
+    color: $orange;
+  }
+}

@@ -73,9 +73,8 @@
 			</Swiper>
 		</div>
 	</div>
-	<div 
-		id="about" 
-		class="container" 
+	<div
+		class="about container" 
 		data-aos="fade-up" 
 		data-aos-once="true" 
 		data-aos-duration="500">
@@ -83,12 +82,12 @@
 			<div class="block-title">
 				<div class="title">品牌故事</div>
 			</div>
-			<div class="col-xl-6">
+			<div class="col-lg-6">
 				<div class="about-img">
 					<img src="@/assets/images/about.jpg" alt="關於我們照片" />
 				</div>
 			</div>
-			<div class="col-xl-6">
+			<div class="col-lg-6">
 				<div class="about-info">
 					<p>
 						吃堡創立於2022年，創立動機是想讓更多人吃到手工漢堡的美味，市面上的漢堡販賣管道琳瑯滿目，卻鮮少有漢堡品牌可以兼具平價與健康的兩大要點。
@@ -107,12 +106,11 @@
 		</div>
 	</div>
 	<div 
-		id="evaluate" 
-		class="container" 
+		class="evaluate container" 
 		data-aos="fade-up" 
 		data-aos-once="true" 
 		data-aos-duration="500">
-		<div class="row">
+		<div>
 			<div class="block-title">
 				<div class="title">客戶評價</div>
 			</div>

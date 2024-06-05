@@ -1,14 +1,16 @@
 <template>
 	<PageBanner :pageTitle="pageTitle"></PageBanner>
 	<section id="page-content" class="container vl-parent" ref="formContainer">
-		<div id="product-page" class="row">
+		<div class="row">
 			<div class="col-lg-6 col-md-6">
-				<div class="img">
-					<img :src="product.imageUrl" :alt="product.title" />
+				<div class="product-info-img">
+					<div class="circle-outer">
+						<img :src="product.imageUrl" :alt="product.title" />
+					</div>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6">
-				<div class="info">
+				<div class="product-info-detail">
 					<span class="badge text-bg-success">{{ product.category }}</span>
 					<div class="title">{{ product.title }}</div>
 					<div class="price">NT {{ product.price }}</div>

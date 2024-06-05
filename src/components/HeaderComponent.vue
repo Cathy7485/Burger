@@ -1,7 +1,7 @@
 <template>
 	<header>
 		<div class="header-container">
-			<routerLink class="logoBox" to="/">
+			<routerLink class="logo-box" to="/">
 				<div class="logo">
 					<img src="../assets/logo.svg" class="d-none d-lg-block d-xl-block" alt="logo" />
 					<img src="../assets/images/logo-xs.jpg" class="d-block d-lg-none" alt="logo-xs">

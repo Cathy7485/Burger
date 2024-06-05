@@ -1,7 +1,7 @@
 <template>
 	<PageBanner :pageTitle="pageTitle"></PageBanner>
-	<section id="page-content" class="container">
-		<div id="checkOrder" class="row">
+	<section id="page-content" class="checkOrder container">
+		<div class="row">
 			<div class="col-lg-8 m-auto">
 				<div class="form">
 					<label for="idNum" class="form-label">訂單編號：</label>
