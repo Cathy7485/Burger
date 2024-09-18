@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       isAuth: false,
-    }
+    };
   },
   components: {
     RouterView,
@@ -25,35 +25,32 @@ export default {
         /(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/,
         "$1"
       );
-      if (token) {
-        this.$http.defaults.headers.common.Authorization = token;
-        const url = `${VITE_URL}api/user/check`
-        this.$http.post(url)
-          .then(() => {
-            this.isAuth = true;
-          })
-          .catch(err => {
-            this.$router.push('/login')
-            this.$swal({
-              title: err.response.data.message,
-              icon: 'error',
-              showConfirmButton: false,
-            })
-          })
-      } else {
-        if (!res.data.success) {
-          this.$router.push('/login');
+
+      // 每次發送api時，都會自動夾帶token到header裡
+      this.$http.defaults.headers.common.Authorization = token;
+
+      const url = `${VITE_URL}api/user/check`;
+      this.$http
+        .post(url)
+        .then((res) => {
+          if (!res.data.success) {
+            this.$router.push("/login");
+          }
+          this.isAuth = true;
+        })
+        .catch((err) => {
+          this.$router.push("/login");
           this.$swal({
-            title: '您沒有權限進入！請重新登入！',
-            icon: 'error',
+            title: err.response.data.message,
+            icon: "error",
             showConfirmButton: false,
-          })
-        }
-      }
-    }
+          });
+          this.isAuth = false;
+        });
+    },
   },
   mounted() {
-    this.checkLogin()
+    this.checkLogin();
   },
 };
 </script>
