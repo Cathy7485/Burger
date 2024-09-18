@@ -1,46 +1,48 @@
 footer {
   background: #272727;
   color: #fff;
+  padding: 20px 20px 0;
 }
+
 .footer-info {
-  @include iphone {
+  @include phone {
     order: 2;
   }
+
   ul {
-    padding: 48px;
+    padding: 20px;
     list-style: none;
     margin-top: 3rem;
+    margin-bottom: 0;
+
     @include tablet-landscape {
       margin-top: 0;
     }
-    @include iphone {
-      padding-top: 0;
-    }
+
     li {
       margin-bottom: 16px;
     }
   }
 }
+
 .footer-logo {
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
   @include tablet-portrait {
-    text-align: left;
+    justify-content: flex-start;
   }
-  @include iphone {
+
+  @include phone {
     order: 1;
   }
+
   img {
-    margin: 4rem 0 4rem;
-    @include tablet-landscape {
-      width: 120px;
-      margin: 2rem 0;
-    }
-    @include tablet-portrait {
-      width: 90px;
-      margin: 0 3rem 3rem;
-    }
+    margin: 16px;
   }
 }
+
 .copyright {
   width: 100%;
   padding: 12px 0;

@@ -1,10 +1,18 @@
 <template>
-	<div class="popular-products container" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
+	<div 
+		class="popular-products container" 
+		data-aos="fade-up" 
+		data-aos-once="true" 
+		data-aos-duration="500">
 		<div class="row">
 			<div class="block-title">
 				<div class="title">暢銷漢堡</div>
 			</div>
-			<Swiper :navigation="true" :spaceBetween="120" :modules="modules" class="popularSwiper">
+			<Swiper 
+				:navigation="true" 
+				:spaceBetween="120" 
+				:modules="modules" 
+				class="popularSwiper">
 				<SwiperSlide>
 					<div class="product-item">
 						<div class="product-img">
@@ -65,17 +73,21 @@
 			</Swiper>
 		</div>
 	</div>
-	<div id="about" class="container" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
+	<div
+		class="about container" 
+		data-aos="fade-up" 
+		data-aos-once="true" 
+		data-aos-duration="500">
 		<div class="row">
 			<div class="block-title">
 				<div class="title">品牌故事</div>
 			</div>
-			<div class="col-xl-6">
+			<div class="col-lg-6">
 				<div class="about-img">
-					<img src="https://raw.githubusercontent.com/Cathy7485/Burger/main/src/assets/images/about.jpg" alt="關於我們照片" />
+					<img src="@/assets/images/about.jpg" alt="關於我們照片" />
 				</div>
 			</div>
-			<div class="col-xl-6">
+			<div class="col-lg-6">
 				<div class="about-info">
 					<p>
 						吃堡創立於2022年，創立動機是想讓更多人吃到手工漢堡的美味，市面上的漢堡販賣管道琳瑯滿目，卻鮮少有漢堡品牌可以兼具平價與健康的兩大要點。
@@ -93,16 +105,24 @@
 			</div>
 		</div>
 	</div>
-	<div id="evaluate" class="container" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
-		<div class="row">
+	<div 
+		class="evaluate container" 
+		data-aos="fade-up" 
+		data-aos-once="true" 
+		data-aos-duration="500">
+		<div>
 			<div class="block-title">
 				<div class="title">客戶評價</div>
 			</div>
-			<Swiper :navigation="false" :breakpoints="swiperOptions.breakpoints" :modules="modules" class="evaluateSwiper">
+			<Swiper 
+				:navigation="false" 
+				:breakpoints="swiperOptions.breakpoints" 
+				:modules="modules" 
+				class="evaluateSwiper">
 				<SwiperSlide>
 					<div class="evaluate-item">
 						<div class="headshot">
-							<img src="https://raw.githubusercontent.com/Cathy7485/Burger/main/src/assets/images/ch.jpg"
+							<img src="@/assets/images/ch.jpg"
 								alt="美食部落客 君君" />
 						</div>
 						<div class="title">美食部落客 君君</div>
@@ -126,7 +146,7 @@
 				<SwiperSlide>
 					<div class="evaluate-item">
 						<div class="headshot">
-							<img src="https://raw.githubusercontent.com/Cathy7485/Burger/main/src/assets/images/john.jpg"
+							<img src="@/assets/images/john.jpg"
 								alt="健身教練 John Lin " />
 						</div>
 						<div class="title">健身教練 John Lin</div>
@@ -150,7 +170,7 @@
 				<SwiperSlide>
 					<div class="evaluate-item">
 						<div class="headshot">
-							<img src="https://raw.githubusercontent.com/Cathy7485/Burger/main/src/assets/images/bai.jpg"
+							<img src="@/assets/images/bai.jpg"
 								alt="素素飲食Youtuber 百百" />
 						</div>
 						<div class="title">素素飲食Youtuber 百百</div>
@@ -181,7 +201,12 @@
 			</div>
 			<iframe
 				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.6423889002085!2d120.22444165078909!3d23.00017418489063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e76ea43016789%3A0xdf299d1044d0fd06!2z5Y-w5Y2X5biC5bCP5p2x6Lev!5e0!3m2!1szh-TW!2stw!4v1677924985144!5m2!1szh-TW!2stw"
-				width="100%" height="450" style="border: 0; padding: 0" allowfullscreen="" loading="lazy"
+				width="100%" 
+				height="450" 
+				style="border: 0; 
+				padding: 0" 
+				allowfullscreen="" 
+				loading="lazy"
 				referrerpolicy="no-referrer-when-downgrade"></iframe>
 		</div>
 	</div>
@@ -194,7 +219,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { Pagination, Navigation } from "swiper";
+import { Navigation } from "swiper";
 
 export default {
 	components: {

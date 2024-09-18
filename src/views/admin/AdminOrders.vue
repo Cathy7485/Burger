@@ -14,7 +14,7 @@
 			<tbody v-for="order in orders" :key="order.id">
 				<tr>
 					<td>
-						<span class="">{{ switchDate(order.create_at) }}</span>
+						<span>{{ switchDate(order.create_at) }}</span>
 					</td>
 					<td>{{ order.id }}</td>
 					<td>{{ order.user.name }}</td>
@@ -26,11 +26,14 @@
 					</td>
 					<td>
 						<div class="btn-group">
-							<button type="button" id="viewBtn" class="btn btn-outline-secondary btn-sm"
-								@click="() => openModal('check', order)">
+							<button
+								type="button"
+								id="viewBtn"
+								class="btn btn-outline-secondary btn-sm"
+								@click="openModal('check', order)">
 								檢視
 							</button>
-							<button type="button" class="btn btn-outline-danger btn-sm" @click="() => openModal('del', order)">
+							<button type="button" class="btn btn-outline-danger btn-sm" @click="openModal('del', order)">
 								刪除
 							</button>
 						</div>
@@ -43,7 +46,7 @@
 	<!-- Modal -->
 	<div id="orderModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
 		aria-hidden="true">
-		<order-modal :temp-product="tempProduct" :update-product="updateProduct"></order-modal>
+		<order-modal :temp-product="tempProduct"></order-modal>
 	</div>
 	<div id="deleteModal" ref="deleteModal" class="modal fade" tabindex="-1" aria-labelledby="deleteModalLabel"
 		aria-hidden="true">
@@ -62,6 +65,7 @@ import productPagination from "@/components/productPagination.vue";
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
 export default {
+	emits: ['switchDate'],
 	data() {
 		return {
 			tempProduct: {

@@ -24,38 +24,34 @@
 					<p>完成訂購</p>
 				</li>
 			</ul>
-			<div id="product-pay">
+			<div class="product-pay">
 				<div class="row">
-					<div class="col-lg-5 order-detail">
-						<div class="p-2">
+					<div class="col-lg-5">
+						<div class="order-detail p-2">
 							<div class="block-title">
 								購物車明細
 							</div>
-							<table class="table align-middle">
+							<table class="table align-middle text-center">
 								<thead>
-									<tr>
+									<tr class="bg-secondary text-white">
 										<th>品名</th>
-										<th style="width: 150px">數量/單位</th>
+										<th>數量</th>
 										<th>單價</th>
 									</tr>
 								</thead>
 								<tbody>
 									<template v-if="carts">
 										<tr v-for="item in carts" :key="item.id">
-											<td>
+											<td class="text-start">
 												{{ item.product.title }}
-												<!-- <div class="text-success">
-														已套用優惠券
-													</div> -->
 											</td>
 											<td>
 												<div>
 													{{ item.qty }}
 												</div>
 											</td>
-											<td class="text-end">
-												<!-- <small class="text-success">折扣價：</small> -->
-												{{ item.total.toLocaleString("zh-TW") }}
+											<td>
+												$ {{ item.total.toLocaleString("zh-TW") }}
 											</td>
 										</tr>
 									</template>
@@ -63,12 +59,8 @@
 								<tfoot>
 									<tr class="text-danger">
 										<td colspan="2" class="text-end">總計</td>
-										<td class="text-end">{{ total.toLocaleString("zh-TW") }}</td>
+										<td class="text-end">$ {{ total.toLocaleString("zh-TW") }}</td>
 									</tr>
-									<!-- <tr>
-										<td colspan="3" class="text-end text-success">折扣價</td>
-										<td class="text-end text-success">{{ carts.final_total }}</td>
-									</tr> -->
 								</tfoot>
 							</table>
 						</div>

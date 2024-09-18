@@ -4,10 +4,13 @@
 			<div class="modal-content border-0">
 				<div class="modal-header bg-dark text-white">
 					<h5 id="productModalLabel" class="modal-title">
-						<span v-if="isNew">新增產品</span>
-						<span v-else>編輯產品</span>
+						<span>{{ isNew ? '新增' : '編輯' }}產品</span>
 					</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<button
+						type="button"
+						class="btn-close"
+						data-bs-dismiss="modal"
+						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<div class="row">
@@ -15,27 +18,40 @@
 							<div class="mb-2">
 								<div class="mb-2">
 									<label for="imageUrl" class="form-label">輸入圖片網址</label>
-									<input v-model="tempProduct.imageUrl" type="text" class="form-control" placeholder="請輸入圖片連結" />
+									<input
+										v-model="tempProduct.imageUrl"
+										type="text"
+										class="form-control"
+										placeholder="請輸入圖片連結" />
 								</div>
 								<img class="img-fluid" :src="tempProduct.imageUrl" alt="tempProduct.title" />
 							</div>
 							<div>
 								<h4>多圖設置</h4>
-								<!-- 判斷tempProduct.imagesUrl是一個陣列 -->
 								<div v-if="Array.isArray(tempProduct.imagesUrl)">
-									<template v-for="(item, key) in tempProduct.imagesUrl" :key="key + A2">
-										<input type="text" class="form-control mt-2 mb-3" v-model="tempProduct.imagesUrl[key]" />
-										<img :src="tempProduct.imagesUrl[key]" :alt="tempProduct.title" class="img-fluid" />
+									<template
+										v-for="(item, key) in tempProduct.imagesUrl"
+										:key="item + '1'">
+										<input
+											type="text"
+											class="form-control mt-2 mb-3"
+											v-model="tempProduct.imagesUrl[key]" />
+										<img
+											:src="tempProduct.imagesUrl[key]"
+											:alt="tempProduct.title"
+											class="img-fluid" />
 									</template>
-									<!-- 判斷新增、刪除出現的時機 
-                  新增兩條件：1.如果沒有資料時，可以新增 2. 如果當前位置有資料時，可以新增 -->
-									<button class="btn btn-outline-primary btn-sm d-block w-100" @click="() => tempProduct.imagesUrl.push('')"
-										v-if="!tempProduct.imagesUrl.length ||
-											tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]
-											" type="button">
+									<button
+										class="btn btn-outline-primary btn-sm d-block w-100"
+											@click="tempProduct.imagesUrl.push('')"
+											v-if="!tempProduct.imagesUrl.length ||
+											tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]"
+											type="button">
 										新增圖片
 									</button>
-									<button class="btn btn-outline-danger btn-sm d-block w-100" @click="() => tempProduct.imagesUrl.pop()"
+									<button 
+										class="btn btn-outline-danger btn-sm d-block w-100"
+										@click="tempProduct.imagesUrl.pop()"
 										v-else>
 										刪除圖片
 									</button>
@@ -45,12 +61,21 @@
 						<div class="col-sm-8">
 							<div class="mb-3">
 								<label for="title" class="form-label">標題</label>
-								<input id="title" v-model="tempProduct.title" type="text" class="form-control" placeholder="請輸入標題" />
+								<input
+									id="title"
+									v-model="tempProduct.title"
+									type="text"
+									class="form-control"
+									placeholder="請輸入標題" />
 							</div>
 							<div class="row">
 								<div class="mb-3 col-md-6">
 									<label for="category" class="form-label">分類</label>
-									<input id="category" v-model="tempProduct.category" type="text" class="form-control"
+									<input
+										id="category"
+										v-model="tempProduct.category"
+										type="text"
+										class="form-control"
 										placeholder="請輸入分類" />
 								</div>
 								<div class="mb-3 col-md-6">

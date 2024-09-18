@@ -32,14 +32,13 @@
 								<p>
 									訂單編號：{{ orderId }}
 								</p>
-								<ul v-for="orderItem in order.products">
+								<ul v-for="orderItem in order.products" :key="orderItem.product.id">
 									<li>
 										<div class="d-flex justify-content-between align-items-center mb-1">
 											<div class="title">{{ orderItem.product.title }}</div>
 											<div>{{ orderItem.product.price.toLocaleString("zh-TW") }} 元</div>
 										</div>
 										<div class="ps-1"> X {{ orderItem.qty }}</div>
-
 									</li>
 								</ul>
 								<div class="d-flex justify-content-between align-items-center p-1">
@@ -144,9 +143,9 @@ export default {
 	},
 	mounted() {
 		this.getOrder();
-		this.collapse = new Collapse(this.$refs.collapse, {
-			toggle: false,
-		});
+		// this.collapse = new Collapse(this.$refs.collapse, {
+			// toggle: false,
+		// });
 	},
 };
 </script>

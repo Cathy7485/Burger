@@ -26,29 +26,25 @@
 							<p>完成訂購</p>
 						</li>
 					</ul>
-					<table class="table align-middle box-outline">
+					<table class="table align-middle box-outline cart-table">
 						<thead>
-							<tr>
+							<tr class="title-bg">
 								<th></th>
 								<th>品名</th>
 								<th style="width: 150px">數量/單位</th>
-								<th>單價</th>
+								<th class="text-end">單價</th>
 							</tr>
 						</thead>
 						<tbody>
 							<template v-if="carts">
 								<tr v-for="item in carts" :key="item.id">
 									<td>
-										<button type="button" class="btn btn-outline-danger btn-sm" @click="() => deleteItem(item)">
-											<!-- <i class="fas fa-spinner fa-pulse"></i> -->
+										<button type="button" class="delete-button" @click="() => deleteItem(item)">
 											x
 										</button>
 									</td>
 									<td>
 										{{ item.product.title }}
-										<!-- <div class="text-success">
-												已套用優惠券
-											</div> -->
 									</td>
 									<td>
 										<div class="input-group input-group-sm" style="width: 65%">
@@ -57,15 +53,11 @@
 													{{ i }}
 												</option>
 											</select>
-											<!-- <div class="input-group mb-3">
-													<input min="1" type="number" class="form-control">
-													<span class="input-group-text" id="basic-addon2">{{ }}</span>
-												</div> -->
 										</div>
 									</td>
 									<td class="text-end">
 										<!-- <small class="text-success">折扣價：</small> -->
-										{{ item.total.toLocaleString("zh-TW") }}
+										{{ item.total.toLocaleString("zh-TW") }} 元
 									</td>
 								</tr>
 							</template>
@@ -73,12 +65,8 @@
 						<tfoot>
 							<tr class="text-danger">
 								<td colspan="3" class="text-end">總計</td>
-								<td class="text-end">{{ total.toLocaleString("zh-TW") }}</td>
+								<td class="text-end">{{ total.toLocaleString("zh-TW") }} 元</td>
 							</tr>
-							<!-- <tr>
-								<td colspan="3" class="text-end text-success">折扣價</td>
-								<td class="text-end text-success">{{ carts.final_total }}</td>
-							</tr> -->
 						</tfoot>
 					</table>
 					<div class="text-end mt-4">
@@ -107,7 +95,12 @@ export default {
 		PageBanner,
 	},
 	computed: {
-		...mapState(cartStore, ["carts", "total", "final_total", "data"]),
+		...mapState(cartStore, [
+			"carts",
+			"total",
+			"final_total",
+			"data"
+		]),
 	},
 	methods: {
 		...mapActions(cartStore, [

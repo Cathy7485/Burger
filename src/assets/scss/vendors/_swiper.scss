@@ -2,9 +2,9 @@
   .swiper {
     &-button {
       &-prev {
-        color: $text;
+        color: $black;
         border-radius: 50%;
-        border: solid 3px $text;
+        border: solid 3px $black;
         width: 74px;
         height: 74px;
 
@@ -21,9 +21,9 @@
       }
 
       &-next {
-        color: $text;
+        color: $black;
         border-radius: 50%;
-        border: solid 3px $text;
+        border: solid 3px $black;
         width: 74px;
         height: 74px;
 

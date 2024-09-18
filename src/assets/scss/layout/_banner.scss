@@ -3,46 +3,49 @@
   max-height: 725px;
   height: 725px;
   transition: all 0.3s;
-  background: url(@/assets/images/banner.png) top center;
+  background: url(@/assets/images/banner.png) center center;
   background-size: cover;
 
   @include desktop {
     height: 400px;
   }
+}
 
-  &-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-  }
-
-  &-title {
-    position: absolute;
-    left: 10%;
-    top: calc(50% - 85px);
-    font-family: 'Dela Gothic One', cursive;
-    -webkit-text-stroke: 1.1px #185203;
-    text-stroke: 1.1px #185203;
-    color: #fff;
-    font-weight: 600;
-    font-size: 7.5rem;
-    z-index: 1;
-  }
-
-  &-text {
-    position: absolute;
-    left: 0;
-    bottom: -40px;
-    z-index: -1;
-
-    @include wide {
-      height: 80%;
-      top: 0;
-    }
-    
+.banner-layout {
+  @include tablet-landscape {
+    display: flex;
+    flex-direction: column;
   }
 }
+
+.banner-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.banner-title {
+  position: absolute;
+  left: 10%;
+  top: calc(50% - 85px);
+  font-family: 'Dela Gothic One', cursive;
+  -webkit-text-stroke: 1.1px #185203;
+  text-stroke: 1.1px #185203;
+  color: #fff;
+  font-weight: 600;
+  font-size: 7.5rem;
+  line-height: normal;
+  z-index: 1;
+
+  @include tablet-portrait {
+    font-size: 6rem;
+    top: auto;
+    left: 5%;
+    bottom: 40px;
+  }
+}
+
 
 .sub-title {
   font-family: "Noto Sans TC", sans-serif;
@@ -51,6 +54,25 @@
   -webkit-text-stroke: initial;
   text-stroke: initial;
   color: #383838;
+
+  @include tablet-portrait {
+    padding: 4px;
+    font-size: 1rem;
+    background: $black;
+    color: #fff;
+  }
+}
+
+.banner-bg-text {
+  position: absolute;
+  left: 0;
+  bottom: -40px;
+  z-index: -1;
+
+  @include wide {
+    height: 80%;
+    top: 0;
+  }
 }
 
 .page-banner {
@@ -86,11 +108,22 @@
   right: 94px;
   bottom: 0;
 
+  @include wide {
+    width: 450px;
+    height: 420px;
+    right: 60px;
+    bottom: 128px;
+  }
+
   @include desktop {
     width: 365px;
     height: 365px;
     top: 0;
     right: 0;
+  }
+
+  @include tablet-landscape {
+    width: 320px;
   }
 
   img {

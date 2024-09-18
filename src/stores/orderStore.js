@@ -23,6 +23,16 @@ export default defineStore('orderStore',{
         })
         })
     },
+    createDate(ms) {
+      const timer = new Date(ms * 1000);
+      const y = timer.getFullYear();
+      const m =
+        timer.getMonth() + 1 >= 10
+          ? timer.getMonth() + 1
+          : `0${timer.getMonth() + 1}`;
+      const d = timer.getDate() >= 10 ? timer.getDate() : `0${timer.getDate()}`;
+      return `${y}/${m}/${d}`;
+    },
 	},
 	getters: {
 		orders: ({ ordersData })=>{

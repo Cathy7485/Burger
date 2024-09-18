@@ -1,7 +1,7 @@
 <template>
 	<div id="main" class="container">
 		<div class="text-end mt-4">
-			<button type="button" class="btn btn-primary" @click="() => openModal('add')">
+			<button type="button" class="btn btn-primary" @click="openModal('add')">
 				建立新的產品
 			</button>
 		</div>
@@ -31,11 +31,11 @@
 					</td>
 					<td>
 						<div class="btn-group">
-							<button type="button" id="editBtn" class="btn btn-outline-primary btn-sm"
-								@click="() => openModal('edit', product)">
+							<button type="button" id="editBtn" class="btn btn-outline-secondary btn-sm"
+								@click="openModal('edit', product)">
 								編輯
 							</button>
-							<button type="button" class="btn btn-outline-danger btn-sm" @click="() => openModal('del', product)">
+							<button type="button" class="btn btn-outline-danger btn-sm" @click="openModal('del', product)">
 								刪除
 							</button>
 						</div>
@@ -43,52 +43,77 @@
 				</tr>
 			</tbody>
 		</table>
-		<productPagination :pages="pages" :get-data="getProducts" @change-page="getProducts"></productPagination>
+		<productPagination :pages="pagination" @change-page="getProducts"></productPagination>
 	</div>
 	<!-- Modal -->
-	<div id="productModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
+	<div
+		id="productModal"
+		ref="productModal"
+		class="modal fade"
+		tabindex="-1"
+		aria-labelledby="productModalLabel"
 		aria-hidden="true">
-		<product-modal :temp-product="tempProduct" :is-new="isNew" :update-product="updateProduct"></product-modal>
+		<product-modal 
+			:temp-product="tempProduct"
+			:is-new="isNew"
+			@update-product="updateProduct"></product-modal>
 	</div>
-	<div id="deleteModal" ref="deleteModal" class="modal fade" tabindex="-1" aria-labelledby="deleteModalLabel"
+	<div
+		id="deleteModal"
+		ref="deleteModal"
+		class="modal fade"
+		tabindex="-1"
+		aria-labelledby="deleteModalLabel"
 		aria-hidden="true">
-		<delete-modal :temp-product="tempProduct" :delete-product="deleteProduct"></delete-modal>
+		<delete-modal
+			:temp-product="tempProduct"
+			@delete-product="deleteProduct"></delete-modal>
 	</div>
 	<!-- Modal -->
 </template>
 
 <script>
 import { Modal } from "bootstrap";
-import { mapActions, mapState } from "pinia";
+import { mapState } from "pinia";
 import productModal from "@/components/productModal.vue";
 import deleteModal from "@/components/deleteModal.vue";
-import productStore from "@/stores/productStore";
 import productPagination from "@/components/productPagination.vue";
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
 export default {
 	data() {
 		return {
+			products: [],
 			tempProduct: {
 				imagesUrl: [],
 			},
 			isNew: false,
-			page: {},
+			pagination: {},
 			deleteModal: "",
 			productModal: "",
 		};
 	},
 	components: {
-		productStore,
 		productModal,
 		deleteModal,
 		productPagination,
 	},
-	computed: {
-		...mapState(productStore, ["products", "pages"]),
-	},
 	methods: {
-		...mapActions(productStore, ["getProducts"]),
+		getProducts(pages = 1) { 
+      const url = `${VITE_URL}api/${VITE_PATH}/admin/products/?page=${pages}`;
+      this.$http.get(url)
+        .then((res) => {
+          this.products = res.data.products;
+          this.pagination = res.data.pagination;
+        })
+        .catch((err) => {
+          swal.fire({
+          icon: 'error',
+          title: `${err.response.data.message}`,
+          showConfirmButton: false,
+        })
+        })
+    },
 		updateProduct() {
 			let url = `${VITE_URL}api/${VITE_PATH}/admin/product`;
 			//用this.isNew 判斷API要怎麼運行

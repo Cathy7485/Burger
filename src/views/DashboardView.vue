@@ -1,7 +1,7 @@
 <template>
   <div class="admin">
     <AdminHeader />
-    <RouterView />
+    <RouterView v-if="isAuth" />
   </div>
 </template>
 <script>
@@ -10,6 +10,11 @@ import AdminHeader from "../components/AdminHeader.vue";
 const { VITE_URL } = import.meta.env;
 
 export default {
+  data() {
+    return {
+      isAuth: false,
+    };
+  },
   components: {
     RouterView,
     AdminHeader,
@@ -20,32 +25,32 @@ export default {
         /(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/,
         "$1"
       );
+
+      // 每次發送api時，都會自動夾帶token到header裡
       this.$http.defaults.headers.common.Authorization = token;
 
-      const url = `${VITE_URL}api/user/check`
-      this.$http.post(url)
+      const url = `${VITE_URL}api/user/check`;
+      this.$http
+        .post(url)
         .then((res) => {
           if (!res.data.success) {
-            this.$router.push('/login')
-            this.$swal({
-              title: '您沒有權限進入！請重新登入！',
-              icon: 'error',
-              showConfirmButton: false,
-            })
+            this.$router.push("/login");
           }
+          this.isAuth = true;
         })
-        .catch(err => {
-          this.$router.push('/login')
+        .catch((err) => {
+          this.$router.push("/login");
           this.$swal({
             title: err.response.data.message,
-            icon: 'error',
+            icon: "error",
             showConfirmButton: false,
-          })
-        })
-    }
+          });
+          this.isAuth = false;
+        });
+    },
   },
   mounted() {
-    this.checkLogin()
+    this.checkLogin();
   },
 };
 </script>
