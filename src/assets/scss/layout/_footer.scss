@@ -5,7 +5,7 @@ footer {
 }
 
 .footer-info {
-  @include iphone {
+  @include phone {
     order: 2;
   }
 
@@ -34,7 +34,7 @@ footer {
     justify-content: flex-start;
   }
 
-  @include iphone {
+  @include phone {
     order: 1;
   }
 
