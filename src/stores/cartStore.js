@@ -1,49 +1,50 @@
 import { defineStore } from 'pinia';
 import swal from 'sweetalert2';
 import axios from 'axios';
+
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
-const cartStore = defineStore('cart',{
-  state: () => {
-    return {
-      carts: {},
-      total: 0,
-      final_total: 0,
+const cartStore = defineStore('cart', {
+  state: () => ({
+    carts: {},
+    total: 0,
+    final_total: 0,
 
-      products: [],
-      productId: "",
+    products: [],
+    product_id: '',
 
-      data: {
-        user: {
-          name: "",
-          email: "",
-          tel: "",
-          address: "",
-        },
-        message: "",
+    data: {
+      user: {
+        name: '',
+        email: '',
+        tel: '',
+        address: '',
       },
-    }
-  },
+      message: '',
+    },
+  }),
   actions: {
     getCart() {
       axios.get(`${VITE_URL}api/${VITE_PATH}/cart`)
-      .then(res =>{
-        this.carts = res.data.data.carts; 
-        this.total = res.data.data.total; 
-        this.final_total = res.data.data.final_total;  
-      })
-      .catch((err) => {
-        swal.fire({
-          icon: 'error',
-          title: `${err.response.data.message}`,
-          showConfirmButton: false,
+        .then((res) => {
+          this.carts = res.data.data.carts;
+          this.total = res.data.data.total;
+          this.final_total = res.data.data.final_total;
         })
-      });
+        .catch((err) => {
+          swal.fire({
+            icon: 'error',
+            title: `${err.response.data.message}`,
+            showConfirmButton: false,
+          });
+        });
     },
-    addToCart (product_id, qty = 1) {
+    // eslint-disable-next-line camelcase
+    addToCart(product_id, qty = 1) {
       const data = {
+        // eslint-disable-next-line camelcase
         product_id,
-        qty
+        qty,
       };
       axios.post(`${VITE_URL}api/${VITE_PATH}/cart`, { data })
         .then((res) => {
@@ -51,16 +52,16 @@ const cartStore = defineStore('cart',{
             icon: 'success',
             title: `${res.data.message}`,
             showConfirmButton: false,
-          })
+          });
           this.getCart();
         })
-        .catch(err => {
+        .catch((err) => {
           swal.fire({
             icon: 'error',
             title: `${err.response.data.message}`,
             showConfirmButton: false,
-          })
-        })
+          });
+        });
     },
     deleteItem(item) {
       axios.delete(`${VITE_URL}api/${VITE_PATH}/cart/${item.id}`)
@@ -68,17 +69,15 @@ const cartStore = defineStore('cart',{
           this.getCart();
           swal.fire({
             title: `${res.data.message}`,
-            icon: "success",
+            icon: 'success',
             showConfirmButton: false,
           });
         })
-        .catch((err) =>
-          swal.fire({
-            icon: 'error',
-            title: `${err.response.data.message}`,
-            showConfirmButton: false,
-          })
-        );
+        .catch((err) => swal.fire({
+          icon: 'error',
+          title: `${err.response.data.message}`,
+          showConfirmButton: false,
+        }));
     },
     updateCartItem(item) {
       const data = {
@@ -90,20 +89,19 @@ const cartStore = defineStore('cart',{
         .then((res) => {
           swal.fire({
             title: `${res.data.message}`,
-            icon: "success",
+            icon: 'success',
             showConfirmButton: false,
           });
           this.getCart();
+          console.log('update');
         })
-        .catch((err) => 
-          swal.fire({
-            icon: 'error',
-            title: `${err.response.data.message}`,
-            showConfirmButton: false,
-          })
-        );
+        .catch((err) => swal.fire({
+          icon: 'error',
+          title: `${err.response.data.message}`,
+          showConfirmButton: false,
+        }));
     },
   },
-})
+});
 
-export default cartStore
+export default cartStore;

@@ -5,7 +5,13 @@
 				<h5 id="delProductModalLabel" class="modal-title">
 					<span>刪除產品</span>
 				</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				<button
+					type="button"
+					class="btn-close"
+					data-bs-dismiss="modal"
+					aria-label="Close"
+				>
+				</button>
 			</div>
 			<div class="modal-body">
 				是否刪除
@@ -25,6 +31,6 @@
 
 <script>
 export default {
-	props: ['delete-product', 'temp-product']
+	props: ["delete-product", "temp-product"]
 }
 </script>

@@ -1,21 +1,19 @@
 <template>
-	<HeaderComponent />
-	<RouterView />
-	<FooterComponent />
+  <HeaderComponent />
+  <RouterView />
+  <FooterComponent />
 </template>
 
 <script>
-import { RouterView } from "vue-router"
-import HeaderComponent from "../components/HeaderComponent.vue"
-import PageBanner from "../components/PageBanner.vue"
-import FooterComponent from "../components/FooterComponent.vue"
+import { RouterView } from 'vue-router';
+import HeaderComponent from '../components/HeaderComponent.vue';
+import FooterComponent from '../components/FooterComponent.vue';
 
 export default {
-	components: {
-		RouterView,
-		HeaderComponent,
-		PageBanner,
-		FooterComponent,
-	},
+  components: {
+    RouterView,
+    HeaderComponent,
+    FooterComponent,
+  },
 };
 </script>

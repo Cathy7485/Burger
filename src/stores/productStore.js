@@ -1,14 +1,15 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
 import axios from 'axios';
 import swal from 'sweetalert2';
+
 const { VITE_URL, VITE_PATH } = import.meta.env;
 
-export default defineStore('productStore',{
-  state: () =>({
+export default defineStore('productStore', {
+  state: () => ({
     products: [],
   }),
   actions: {
-    getProducts() { 
+    getProducts() {
       const url = `${VITE_URL}api/${VITE_PATH}/products/all`;
       axios
         .get(url)
@@ -17,11 +18,11 @@ export default defineStore('productStore',{
         })
         .catch((err) => {
           swal.fire({
-          icon: 'error',
-          title: `${err.response.data.message}`,
-          showConfirmButton: false,
-        })
-        })
+            icon: 'error',
+            title: `${err.response.data.message}`,
+            showConfirmButton: false,
+          });
+        });
     },
   },
-})
+});
