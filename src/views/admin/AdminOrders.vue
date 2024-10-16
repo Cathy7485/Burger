@@ -158,7 +158,9 @@ export default {
     },
     switchDate(timestamp) {
       const date = new Date(timestamp * 1000);
+      // eslint-disable-next-line camelcase
       const formatted_date = date.toISOString().slice(0, 10);
+      // eslint-disable-next-line camelcase
       return formatted_date;
     },
   },
